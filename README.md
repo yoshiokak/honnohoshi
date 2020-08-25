@@ -1,24 +1,5 @@
-# README
+# 本の星とは
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+本の星というサービスは、本の平均評価を1つのサイトで調べると評価に偏りがある場合があるため、複数サイトでの平均評価を知りたいが、その際にそれぞれのサイトで調べるのが面倒という問題を解決したい、複数サイトの本の平均星評価を知りたい人向けの、本の星評価横断検索サービスです。
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ユーザーはISBNを入力すると、複数サイトでのその本の星評価を見ることができ、自分で複数のサイトを検索して本の星評価を調べるのとは違って、ISBNの入力のみで複数サイトの本の星評価を知ることできる事が特徴です。
