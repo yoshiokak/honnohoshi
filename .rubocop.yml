@@ -270,3 +270,6 @@ Performance/DeletePrefix:
 
 Performance/DeleteSuffix:
   Enabled: true
+
+Style/Documentation:
+  Enabled: false
