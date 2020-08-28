@@ -5,7 +5,7 @@ class Book
               :release_date, :title, :isbn13
 
   def initialize(isbn)
-    @isbn = isbn.delete!("-")
+    @isbn = isbn.delete("-")
   end
 
   def exist?
