@@ -2,10 +2,10 @@
 
 class Book
   attr_reader :author, :cover_image, :publisher,
-              :release_date, :title
+              :release_date, :title, :isbn13
 
   def initialize(isbn)
-    @isbn = isbn
+    @isbn = isbn.delete!("-")
   end
 
   def exist?
@@ -28,6 +28,7 @@ class Book
       @release_date = resource.release_date
       @title = resource.title
       @author = resource.author
+      @isbn13 = resource.isbn
     end
   end
 end
