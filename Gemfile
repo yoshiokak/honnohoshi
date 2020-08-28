@@ -61,3 +61,5 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "slim-rails"
 gem "html2slim"
+
+gem "open_bd"
