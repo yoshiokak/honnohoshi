@@ -1,0 +1,23 @@
+ul.book-info
+  li.book-info__image
+    = image_tag @book.cover_image
+  li.book-info__title
+    span.book-info__title-label
+      | タイトル:
+    span.book-info__title-content
+      = @book.title
+  li.book-info__author
+    span.book-info__author-label
+      | 著者:
+    span.book-info__author-content
+      = @book.author
+  li.book-info__publisher
+    span.book-info__publisher-label
+      | 出版社:
+    span.book-info__publisher-content
+      = @book.publisher
+  li.book-info__release-date
+    span.book-info__release-date-label
+      | 出版年:
+    span.book-info__release-date-content
+      = @book.release_date

@@ -1,0 +1,16 @@
+.search
+  = form_with url: root_path, method: :get, local: true do |f|
+    .search__input
+      = f.text_field :isbn, placeholder: "ISBNを入力してください", required: true
+    .search__btn
+      = f.submit "検索する"
+
+- if @book.present?
+  - unless @book.valid_isbn?
+    p ISBN-13またはISBN-10を入力してください
+
+  - if @book.valid_isbn? && !@book.exist?
+    p 書籍が見つかりませんでした
+
+  - if @book.exist?
+    = render "book_info"
