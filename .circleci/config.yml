@@ -4,6 +4,15 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.7.1-node-browsers
+        environment:
+          PGHOST: localhost
+          PGUSER: honnohoshi
+          PGPASSWORD: ""
+      - image: circleci/postgres:12.1-alpine
+        environment:
+          POSTGRES_USER: honnohoshi
+          POSTGRES_DB: honnohoshi_test
+          POSTGRES_PASSWORD: ""
 
     steps:
       - checkout
@@ -54,7 +63,7 @@ jobs:
 
       - run:
           name: Test
-          command: bundle exec rake test
+          command: bundle exec rake test && bundle exec rake test:system
 
       - store_test_results:
           path: tmp/test-results
