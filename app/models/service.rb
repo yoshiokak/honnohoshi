@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Service
   def self.search(isbn)
     services = []

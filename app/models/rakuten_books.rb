@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RakutenBooks
   def initialize(isbn)
     @isbn = isbn
