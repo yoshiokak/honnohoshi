@@ -1,0 +1,46 @@
+{
+  "Items":[
+     {
+        "limitedFlag":0,
+        "authorKana":"ナツメ,ソウセキ",
+        "author":"夏目漱石",
+        "subTitle":"",
+        "seriesNameKana":"シンチョウ ブンコ",
+        "title":"吾輩は猫である改版",
+        "subTitleKana":"",
+        "itemCaption":"",
+        "publisherName":"新潮社",
+        "listPrice":0,
+        "isbn":"9784101010014",
+        "largeImageUrl":"https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0014/9784101010014.jpg?_ex=200x200",
+        "mediumImageUrl":"https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0014/9784101010014.jpg?_ex=120x120",
+        "titleKana":"ワガハイ ワ ネコ デ アル",
+        "availability":"1",
+        "postageFlag":2,
+        "salesDate":"2003年06月",
+        "contents":"",
+        "smallImageUrl":"https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0014/9784101010014.jpg?_ex=64x64",
+        "discountPrice":0,
+        "itemPrice":693,
+        "size":"文庫",
+        "booksGenreId":"001004008005/001019001",
+        "affiliateUrl":"https://hb.afl.rakuten.co.jp/hgc/g00q0727.zh7wt7c9.g00q0727.zh7wub5e/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F1656073%2F",
+        "seriesName":"新潮文庫",
+        "reviewCount":192,
+        "reviewAverage":"3.93",
+        "discountRate":0,
+        "chirayomiUrl":"",
+        "itemUrl":"https://books.rakuten.co.jp/rb/1656073/"
+     }
+  ],
+  "pageCount":1,
+  "hits":1,
+  "last":1,
+  "count":1,
+  "page":1,
+  "carrier":0,
+  "GenreInformation":[
+     
+  ],
+  "first":1
+}
