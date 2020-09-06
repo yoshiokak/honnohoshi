@@ -64,3 +64,7 @@ gem "slim-rails"
 gem "html2slim"
 
 gem "open_bd"
+
+gem "rakuten_web_service"
+
+gem 'dotenv-rails'
