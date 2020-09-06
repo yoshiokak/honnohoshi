@@ -1,0 +1,38 @@
+.book-review {
+  display: flex;
+}
+
+.book-review__star-rating {
+  position: relative;
+  width: 5em;
+  height: 1em;
+  font-size: 25px;
+}
+
+.book-review__star-rating--front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  color: #ffcc33;
+}
+
+.book-review__star-rating--back {
+  color: #ccc;
+}
+
+.book-review__average-rating {
+  margin-top: 0.4em;
+  margin-left: 1em;
+  font-weight: bold;
+}
+
+.book-review__review-count {
+  margin-top: 0.4em;
+  margin-left: 1em;
+}
+
+.book-review__url {
+  margin-top: 0.4em;
+  margin-left: 1em;
+}
