@@ -63,7 +63,7 @@ jobs:
 
       - run:
           name: Create env file
-          command: echo "RAKUTEN_APP_ID = ${RAKUTEN_APP_ID}" >> ~/.env && echo "RAKUTEN_AFFILIATE_ID = ${RAKUTEN_AFFILIATE_ID}" >> ~/.env
+          command: echo "RAKUTEN_APP_ID = ${RAKUTEN_APP_ID}" >> ~/project/.env && echo "RAKUTEN_AFFILIATE_ID = ${RAKUTEN_AFFILIATE_ID}" >> ~/project/.env
 
       - run:
           name: Test
