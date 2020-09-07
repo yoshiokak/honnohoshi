@@ -104,9 +104,9 @@ class SearchTest < ApplicationSystemTestCase
     fill_in "isbn", with: "978-4101010014"
     click_on "検索する"
 
-    assert page.all(".book-review__star-rating")[0]
-    assert_equal("3.93", page.all(".book-review__average-rating")[0].text)
-    assert_equal("(レビュー192件)", page.all(".book-review__review-count")[0].text)
+    assert page.all(".book-reviews__star-rating")[0]
+    assert_equal("3.93", page.all(".book-reviews__average-rating")[0].text)
+    assert_equal("(レビュー192件)", page.all(".book-reviews__review-count")[0].text)
     assert has_link?("楽天ブックス")
   end
 
@@ -149,3 +149,4 @@ class SearchTest < ApplicationSystemTestCase
     assert_equal("(レビュー1094件)", page.all(".book-reviews__review-count")[1].text)
     assert has_link?("読書メーター")
   end
+end
