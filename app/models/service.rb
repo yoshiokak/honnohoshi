@@ -13,7 +13,8 @@ class Service
 
   def self.service_list
     [
-      "RakutenBooks"
+      "RakutenBooks",
+      "Bookmeter"
     ]
   end
 

@@ -262,6 +262,7 @@ DEPENDENCIES
   html2slim
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  nokogiri
   open_bd
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)

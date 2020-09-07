@@ -1,0 +1,34 @@
+{
+  "metadata":{
+     "offset":0,
+     "limit":1,
+     "count":1
+  },
+  "resources":[
+     {
+        "contents":{
+           "book":{
+              "id":548397,
+              "path":"/books/548397",
+              "amazon_urls":{
+                 "outline":"https://www.amazon.co.jp/exec/obidos/ASIN/product-description/4101010013/ref=nosim?#productDescription",
+                 "registration":"https://www.amazon.co.jp/dp/4101010013",
+                 "wish_book":"https://www.amazon.co.jp/dp/4101010013"
+              },
+              "title":"吾輩は猫である (新潮文庫)",
+              "image_url":"https://m.media-amazon.com/images/I/5106GqBiBKL._SL500_.jpg",
+              "registration_count":7793,
+              "page":624,
+              "original":false,
+              "is_advertisable":true,
+              "author":{
+                 "name":"夏目 漱石",
+                 "path":"/search?author=%E5%A4%8F%E7%9B%AE+%E6%BC%B1%E7%9F%B3"
+              }
+           }
+        },
+        "status":"",
+        "status_text":""
+     }
+  ]
+}
