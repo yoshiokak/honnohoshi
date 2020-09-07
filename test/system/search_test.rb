@@ -86,19 +86,19 @@ class SearchTest < ApplicationSystemTestCase
   end
 
   test "search by ISBN to view RakutenBooks rating" do
-    stub_request(:get, "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?
-                        affiliateId=#{ENV["RAKUTEN_AFFILIATE_ID"]}&applicationId=#{ENV["RAKUTEN_APP_ID"]}&formatVersion=2&isbn=9784101010014").
-  with(
-    headers: {
+    stub_request(:get, "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?affiliateId=#{ENV["RAKUTEN_AFFILIATE_ID"]}&applicationId=#{ENV["RAKUTEN_APP_ID"]}&formatVersion=2&isbn=9784101010014").
+      with(
+        headers: {
           "Accept"=>"*/*",
           "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
           "User-Agent"=>"RakutenWebService SDK for Ruby v1.12.0(ruby-2.7.1 [x86_64-darwin18])"
-    }).
-    to_return(
-      status: 200,
-      body: File.read(Rails.root.join("test/fixtures/files/rakuten_books.json")),
-      headers: { "Content-Type" =>  "application/json" }
-    )
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/rakuten_books.json")),
+          headers: { "Content-Type" =>  "application/json" }
+        )
 
     visit root_path
 
