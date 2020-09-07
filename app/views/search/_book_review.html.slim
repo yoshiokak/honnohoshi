@@ -1,0 +1,16 @@
+.book-review
+  - @services.each do |service|
+    - if service.book.present?
+      .book-review__star-rating
+        .book-review__star-rating--front style="width: #{20 * service.average_rating.to_f}%"
+          | ★★★★★
+        .book-review__star-rating--back
+          | ★★★★★
+      .book-review__average-rating
+        = service.average_rating
+      .book-review__review-count
+        = "(レビュー#{service.review_count}件)"
+      .book-review__url
+        = link_to service.name, service.url
+    - else
+      p #{service.name}には書籍の評価が存在しませんでした

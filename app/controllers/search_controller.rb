@@ -5,6 +5,9 @@ class SearchController < ApplicationController
     return if params[:isbn].blank?
 
     @book = Book.new(params[:isbn])
-    @book.fetch if @book.valid_isbn?
+    if @book.valid_isbn?
+      @book.fetch
+      @services = Service.search(@book.isbn13)
+    end
   end
 end
