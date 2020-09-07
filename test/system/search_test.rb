@@ -90,8 +90,7 @@ class SearchTest < ApplicationSystemTestCase
       with(
         headers: {
           "Accept"=>"*/*",
-          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-          "User-Agent"=>"RakutenWebService SDK for Ruby v1.12.0(ruby-2.7.1 [x86_64-darwin18])"
+          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
         }
       ).
         to_return(
