@@ -17,6 +17,10 @@ class Hongasuki
     "本が好き！"
   end
 
+  def url
+    "https://www.honzuki.jp#{parse_book_path}"
+  end
+
   def book
     parse_book_path
   end
@@ -24,10 +28,6 @@ class Hongasuki
   private
     def doc
       Nokogiri::HTML.parse(URI.open(url))
-    end
-
-    def url
-      "https://www.honzuki.jp#{parse_book_path}"
     end
 
     def search_url
