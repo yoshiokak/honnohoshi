@@ -138,7 +138,7 @@ class SearchTest < ApplicationSystemTestCase
           body: File.read(Rails.root.join("test/fixtures/files/bookmeter.html")),
           headers: { "Content-Type" =>  "text/html" }
         )
-    
+
     visit root_path
 
     fill_in "isbn", with: "978-4101010014"
