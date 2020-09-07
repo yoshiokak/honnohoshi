@@ -6,7 +6,11 @@ class Hongasuki
   end
 
   def average_rating
-    "評価なし" if doc.at_css("b[itemprop='average']").text == "0"
+    if doc.at_css("b[itemprop='average']").text == "0"
+      "評価なし" 
+    else
+      doc.at_css("b[itemprop='average']").text
+    end
   end
 
   def review_count
