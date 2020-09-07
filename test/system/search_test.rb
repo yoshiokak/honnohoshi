@@ -109,4 +109,43 @@ class SearchTest < ApplicationSystemTestCase
     assert_equal("(レビュー192件)", page.all(".book-review__review-count")[0].text)
     assert has_link?("楽天ブックス")
   end
-end
+
+  test "search by ISBN to view Bookmeter rating" do
+    @bookmeter = Bookmeter.new("9784101010014")
+
+    stub_request(:get, "https://bookmeter.com/search?keyword=9784101010014").
+      with(
+        headers: {
+          "Accept"=>"*/*",
+          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/bookmeter.json")),
+          headers: { "Content-Type" =>  "application/json" }
+        )
+
+    stub_request(:get, "https://bookmeter.com/books/548397").
+      with(
+        headers: {
+          "Accept"=>"*/*",
+          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/bookmeter.html")),
+          headers: { "Content-Type" =>  "text/html" }
+        )
+    
+    visit root_path
+
+    fill_in "isbn", with: "978-4101010014"
+    click_on "検索する"
+
+    assert page.all(".book-reviews__star-rating")[1]
+    assert_equal("4.1", page.all(".book-reviews__average-rating")[1].text)
+    assert_equal("(レビュー1094件)", page.all(".book-reviews__review-count")[1].text)
+    assert has_link?("読書メーター")
+  end
