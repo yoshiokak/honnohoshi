@@ -28,14 +28,13 @@ class Bookmeter
   end
 
   def url
-    "https://bookmeter.com/#{parse_book_path}"
+    "https://bookmeter.com#{parse_book_path}"
   end
 
   def book
     parse_book_path
   end
 
-  private
     def doc
       Nokogiri::HTML.parse(URI.open(url))
     end
