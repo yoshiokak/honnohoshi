@@ -62,6 +62,10 @@ jobs:
           command: bundle exec rubocop -c .rubocop.yml
 
       - run:
+          name: Create env file
+          command: echo ${RAKUTEN_APP_ID} > ~/.env && echo ${RAKUTEN_AFFILIATE_ID} > ~/.env
+
+      - run:
           name: Test
           command: bundle exec rake test && bundle exec rake test:system
 
