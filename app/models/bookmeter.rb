@@ -35,6 +35,7 @@ class Bookmeter
     parse_book_path
   end
 
+  private
     def doc
       Nokogiri::HTML.parse(URI.open(url))
     end
