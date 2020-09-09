@@ -29,7 +29,7 @@ class Hongasuki
     parse_book_path
   end
 
-  #private
+  private
     def doc
       Nokogiri::HTML.parse(URI.open(url))
     end
