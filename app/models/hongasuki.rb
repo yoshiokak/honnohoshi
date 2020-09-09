@@ -1,4 +1,6 @@
-require 'open-uri'
+# frozen_string_literal: true
+
+require "open-uri"
 
 class Hongasuki
   def initialize(isbn)
@@ -7,7 +9,7 @@ class Hongasuki
 
   def average_rating
     if doc.at_css("b[itemprop='average']").text == "0"
-      "評価なし" 
+      "評価なし"
     else
       doc.at_css("b[itemprop='average']").text
     end
