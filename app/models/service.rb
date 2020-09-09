@@ -14,7 +14,8 @@ class Service
   def self.service_list
     [
       "RakutenBooks",
-      "Bookmeter"
+      "Bookmeter",
+      "Hongasuki"
     ]
   end
 
