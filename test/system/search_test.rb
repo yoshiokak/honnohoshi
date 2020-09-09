@@ -149,4 +149,44 @@ class SearchTest < ApplicationSystemTestCase
     assert_equal("(レビュー1094件)", page.all(".book-reviews__review-count")[1].text)
     assert has_link?("読書メーター")
   end
+
+  test "search by ISBN to view Hongasuki rating" do
+    @hongasuki = Hongasuki.new("9784101010014")
+
+    stub_request(:get, "https://www.honzuki.jp/book/book_search/index.html?search_in=honzuki&isbn=9784101010014").
+      with(
+        headers: {
+          "Accept"=>"*/*",
+          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/hongasuki_search_url.html")),
+          headers: { "Content-Type" =>  "text/html" }
+        )
+
+    stub_request(:get, "https://www.honzuki.jp/book/9931/").
+      with(
+        headers: {
+          "Accept"=>"*/*",
+          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/hongasuki.html")),
+          headers: { "Content-Type" =>  "text/html" }
+        )
+
+    visit root_path
+
+    fill_in "isbn", with: "978-4101010014"
+    click_on "検索する"
+
+    assert page.all(".book-reviews__star-rating")[2]
+    assert_equal("4.11", page.all(".book-reviews__average-rating")[2].text)
+    assert_equal("(レビュー10件)", page.all(".book-reviews__review-count")[2].text)
+    assert has_link?("本が好き！")
+  end
 end
