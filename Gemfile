@@ -70,3 +70,5 @@ gem "rakuten_web_service"
 gem "dotenv-rails"
 
 gem "nokogiri"
+
+gem 'font-awesome-rails'
