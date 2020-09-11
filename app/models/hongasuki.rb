@@ -33,7 +33,7 @@ class Hongasuki
 
   private
     def doc
-      Nokogiri::HTML.parse(URI.open(url))
+      Nokogiri::HTML.parse(URI.open(url, :ssl_verify_mode => OpenSSL::SSL::VERIFY_NONE))
     end
 
     def search_url
@@ -41,7 +41,7 @@ class Hongasuki
     end
 
     def parse_book_path
-      doc = Nokogiri::HTML.parse(URI.open(search_url))
+      doc = Nokogiri::HTML.parse(URI.open(search_url, :ssl_verify_mode => OpenSSL::SSL::VERIFY_NONE))
       if doc.at_css("td > a").nil?
         nil
       else
