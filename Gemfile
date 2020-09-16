@@ -72,3 +72,5 @@ gem "dotenv-rails"
 gem "nokogiri"
 
 gem 'font-awesome-rails'
+
+gem 'render_async'

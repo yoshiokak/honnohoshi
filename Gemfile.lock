@@ -167,6 +167,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (1.7.1)
+    render_async (2.1.7)
     rexml (3.2.4)
     rubocop (0.90.0)
       parallel (~> 1.10)
@@ -268,6 +269,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
   rakuten_web_service
+  render_async
   rubocop
   rubocop-performance
   rubocop-rails
