@@ -104,7 +104,7 @@ class SearchTest < ApplicationSystemTestCase
     fill_in "isbn", with: "978-4101010014"
     click_on "検索する"
 
-    sleep 4
+    sleep 10
 
     assert page.all(".book-reviews__star-rating")[0]
     assert_equal("3.93", page.all(".book-reviews__average-rating")[0].text)
@@ -146,7 +146,7 @@ class SearchTest < ApplicationSystemTestCase
     fill_in "isbn", with: "978-4101010014"
     click_on "検索する"
 
-    sleep 4
+    sleep 10
 
     assert page.all(".book-reviews__star-rating")[1]
     assert_equal("4.1", page.all(".book-reviews__average-rating")[1].text)
@@ -188,7 +188,7 @@ class SearchTest < ApplicationSystemTestCase
     fill_in "isbn", with: "978-4101010014"
     click_on "検索する"
 
-    sleep 4
+    sleep 10
 
     assert page.all(".book-reviews__star-rating")[2]
     assert_equal("4.11", page.all(".book-reviews__average-rating")[2].text)
