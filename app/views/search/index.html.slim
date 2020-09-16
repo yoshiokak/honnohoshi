@@ -1,9 +1,4 @@
-.search
-  = form_with url: root_path, method: :get, local: true do |f|
-    .search__input
-      = f.text_field :isbn, placeholder: "ISBNを入力してください", required: true
-    .search__btn
-      = f.submit "検索する"
+= render "form"
 
 - if @book.present?
   - unless @book.valid_isbn?
@@ -14,4 +9,5 @@
 
   - if @book.exist?
     = render "book_info"
-    = render "book_reviews"
+    = render_async book_reviews_path(isbn13: @book.isbn13) do
+      | '<div class="loading"><i class="fa fa-spinner fa-spin" aria-hidden="true"></i></div>'
