@@ -25,19 +25,15 @@ class RakutenBooksTest < ActiveSupport::TestCase
     assert_equal("楽天ブックス", @rakuten_books.name)
   end
 
-  test "#book" do
-    assert @rakuten_books.book
+  test "#book_exists?" do
+    @rakuten_books.fetch
+    assert @rakuten_books.book_exists?
   end
 
-  test "#average_rating" do
+  test "#fetch" do
+    @rakuten_books.fetch
     assert_equal("3.93", @rakuten_books.average_rating)
-  end
-
-  test "#review_count" do
     assert_equal(192, @rakuten_books.review_count)
-  end
-
-  test "#url" do
     assert_equal("https://hb.afl.rakuten.co.jp/hgc/g00q0727.zh7wt7c9.g00q0727.zh7wub5e/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F1656073%2F",
                  @rakuten_books.url)
   end
