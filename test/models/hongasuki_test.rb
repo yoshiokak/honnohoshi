@@ -38,19 +38,15 @@ class HongasukiTest < ActiveSupport::TestCase
     assert_equal("本が好き！", @hongasuki.name)
   end
 
-  test "#book" do
-    assert @hongasuki.book
+  test "#book_exists?" do
+    @hongasuki.fetch
+    assert @hongasuki.book_exists?
   end
 
-  test "#url" do
+  test "#fetch" do
+    @hongasuki.fetch
     assert_equal("https://www.honzuki.jp/book/9931/", @hongasuki.url)
-  end
-
-  test "#average_rating" do
     assert_equal("4.11", @hongasuki.average_rating)
-  end
-
-  test "#review_count" do
     assert_equal("10", @hongasuki.review_count)
   end
 end
