@@ -38,19 +38,15 @@ class BookmeterTest < ActiveSupport::TestCase
     assert_equal("読書メーター", @bookmeter.name)
   end
 
-  test "#book" do
-    assert @bookmeter.book
+  test "#book_exists?" do
+    @bookmeter.fetch
+    assert @bookmeter.book_exists?
   end
 
-  test "#url" do
+  test "#fetch" do
+    @bookmeter.fetch
     assert_equal("https://bookmeter.com/books/548397", @bookmeter.url)
-  end
-
-  test "#average_rating" do
     assert_equal(4.1, @bookmeter.average_rating)
-  end
-
-  test "#review_count" do
     assert_equal("1094", @bookmeter.review_count)
   end
 end
