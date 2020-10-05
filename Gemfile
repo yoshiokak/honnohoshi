@@ -74,3 +74,5 @@ gem "nokogiri"
 gem "font-awesome-rails"
 
 gem "render_async"
+
+gem "parallel"

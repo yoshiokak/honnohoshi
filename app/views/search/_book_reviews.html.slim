@@ -1,6 +1,6 @@
 .book-reviews
   - @services.each do |service|
-    - if service.book.present?
+    - if service.book_exists?
       .book-reviews__book-review
         .book-reviews__star-rating
           .book-reviews__star-rating--front style="width: #{20 * service.average_rating.to_f}%"
