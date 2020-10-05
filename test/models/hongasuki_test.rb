@@ -39,7 +39,6 @@ class HongasukiTest < ActiveSupport::TestCase
   end
 
   test "#book_exists?" do
-    @hongasuki.fetch
     assert @hongasuki.book_exists?
   end
 

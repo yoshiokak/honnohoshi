@@ -10,8 +10,6 @@ class Hongasuki
   end
 
   def fetch
-    @book = parse_book_path
-
     if book_exists?
       @url = parse_url
       @doc = Nokogiri::HTML.parse(URI.open(@url, ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE))
@@ -25,7 +23,7 @@ class Hongasuki
   end
 
   def book_exists?
-    if @book.nil?
+    if parse_book_path.nil?
       false
     else
       true

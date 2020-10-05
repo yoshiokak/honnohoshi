@@ -39,7 +39,6 @@ class BookmeterTest < ActiveSupport::TestCase
   end
 
   test "#book_exists?" do
-    @bookmeter.fetch
     assert @bookmeter.book_exists?
   end
 
