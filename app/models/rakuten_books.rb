@@ -8,17 +8,17 @@ class RakutenBooks
   end
 
   def fetch
-    @book = RakutenWebService::Books::Book.search(isbn: @isbn).first
-
     if book_exists?
-      @url = @book.affiliate_url
-      @average_rating = @book.review_average
-      @review_count = @book.review_count
+      book = RakutenWebService::Books::Book.search(isbn: @isbn).first
+
+      @url = book.affiliate_url
+      @average_rating = book.review_average
+      @review_count = book.review_count
     end
   end
 
   def book_exists?
-    if @book.nil?
+    if RakutenWebService::Books::Book.search(isbn: @isbn).first.nil?
       false
     else
       true
