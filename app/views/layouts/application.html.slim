@@ -8,5 +8,6 @@ html
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
     = content_for :render_async
+    = favicon_link_tag()
   body
     = yield
