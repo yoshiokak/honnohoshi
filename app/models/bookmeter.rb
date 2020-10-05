@@ -10,8 +10,6 @@ class Bookmeter
   end
 
   def fetch
-    @book = parse_book_path
-
     if book_exists?
       @url = parse_url
       @doc = Nokogiri::HTML.parse(URI.open(@url))
@@ -25,7 +23,7 @@ class Bookmeter
   end
 
   def book_exists?
-    if @book.nil?
+    if parse_book_path.nil?
       false
     else
       true
