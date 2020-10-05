@@ -265,6 +265,7 @@ DEPENDENCIES
   listen (~> 3.2)
   nokogiri
   open_bd
+  parallel
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
