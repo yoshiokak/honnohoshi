@@ -5,5 +5,5 @@
         = f.text_field :isbn, placeholder: "ISBN", required: true
     .control
       .search__btn
-        = button_tag type: 'submit', class: 'button is-light is-small' do
+        = button_tag type: 'submit', :name => nil, class: 'button is-light is-small' do
           i.fa.fa-search
