@@ -9,8 +9,8 @@
 .book-reviews__star-rating {
   position: relative;
   width: 5em;
-  height: 1em;
-  font-size: 25px;
+  height: 2em;
+  font-size: 50px;
 }
 
 .book-reviews__star-rating--front {
@@ -26,17 +26,20 @@
 }
 
 .book-reviews__average-rating {
-  margin-top: 0.4em;
-  margin-left: 1em;
+  margin-top: 1em;
+  margin-left: 1.3em;
   font-weight: bold;
+  font-size: 25px;
 }
 
 .book-reviews__review-count {
-  margin-top: 0.4em;
-  margin-left: 1em;
+  margin-top: 1em;
+  margin-left: 1.3em;
+  font-size: 25px;
 }
 
 .book-reviews__url {
-  margin-top: 0.4em;
-  margin-left: 1em;
+  margin-top: 1em;
+  margin-left: 1.3em;
+  font-size: 25px;
 }

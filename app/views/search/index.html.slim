@@ -9,6 +9,4 @@
     p 書籍が見つかりませんでした
 
   - if @book.exist?
-    = render "book_info"
-    = render_async book_reviews_path(isbn13: @book.isbn13) do
-      | '<div class="loading"><i class="fa fa-spinner fa-spin" aria-hidden="true"></i></div>'
+    = render "search_result"
