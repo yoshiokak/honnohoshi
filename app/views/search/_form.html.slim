@@ -1,6 +1,9 @@
-.search
-  = form_with url: root_path, method: :get, local: true do |f|
-    .search__input
-      = f.text_field :isbn, placeholder: "ISBNを入力してください", required: true
-    .search__btn
-      = f.submit "検索する"
+= form_with url: root_path, method: :get, local: true do |f|
+  .search.field.has-addons
+    .control
+      .search__input.input.is-small
+        = f.text_field :isbn, placeholder: "ISBN", required: true
+    .control
+      .search__btn
+        = button_tag type: 'submit', class: 'button is-light is-small' do
+          i.fa.fa-search
