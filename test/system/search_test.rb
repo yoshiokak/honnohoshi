@@ -25,7 +25,7 @@ class SearchTest < ApplicationSystemTestCase
     visit root_path
 
     fill_in "isbn", with: "9784101010014"
-    click_on "検索する"
+    find(".search__btn").click
 
     assert find("img[src='https://cover.openbd.jp/9784101010014.jpg']")
     assert_text("吾輩は猫である")
@@ -38,7 +38,7 @@ class SearchTest < ApplicationSystemTestCase
     visit root_path
 
     fill_in "isbn", with: "978-4101010014"
-    click_on "検索する"
+    find(".search__btn").click
 
     assert find("img[src='https://cover.openbd.jp/9784101010014.jpg']")
     assert_text("吾輩は猫である")
@@ -51,7 +51,7 @@ class SearchTest < ApplicationSystemTestCase
     visit root_path
 
     fill_in "isbn", with: "4101010013"
-    click_on "検索する"
+    find(".search__btn").click
 
     assert find("img[src='https://cover.openbd.jp/9784101010014.jpg']")
     assert_text("吾輩は猫である")
@@ -64,7 +64,7 @@ class SearchTest < ApplicationSystemTestCase
     visit root_path
 
     fill_in "isbn", with: "invalidstring"
-    click_on "検索する"
+    find(".search__btn").click
 
     assert_text("ISBN-13またはISBN-10を入力してください")
   end
@@ -73,13 +73,13 @@ class SearchTest < ApplicationSystemTestCase
     visit root_path
 
     fill_in "isbn", with: "9784101010013"
-    click_on "検索する"
+    find(".search__btn").click
 
     assert_text("書籍が見つかりませんでした")
   end
 
-  test "when visit root_path, don't view error message" do
-    visit root_path
+  test "when visit search_path, don't view error message" do
+    visit search_path
 
     assert_no_text("ISBN-13またはISBN-10を入力してください")
     assert_no_text("書籍が見つかりませんでした")
@@ -102,7 +102,7 @@ class SearchTest < ApplicationSystemTestCase
     visit root_path
 
     fill_in "isbn", with: "978-4101010014"
-    click_on "検索する"
+    find(".search__btn").click
 
     assert page.all(".book-reviews__star-rating")[0]
     assert_equal("3.93", page.all(".book-reviews__average-rating")[0].text)
@@ -142,7 +142,7 @@ class SearchTest < ApplicationSystemTestCase
     visit root_path
 
     fill_in "isbn", with: "978-4101010014"
-    click_on "検索する"
+    find(".search__btn").click
 
     assert page.all(".book-reviews__star-rating")[1]
     assert_equal("4.1", page.all(".book-reviews__average-rating")[1].text)
@@ -182,7 +182,7 @@ class SearchTest < ApplicationSystemTestCase
     visit root_path
 
     fill_in "isbn", with: "978-4101010014"
-    click_on "検索する"
+    find(".search__btn").click
 
     assert page.all(".book-reviews__star-rating")[2]
     assert_equal("4.11", page.all(".book-reviews__average-rating")[2].text)
