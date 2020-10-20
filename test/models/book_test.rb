@@ -4,6 +4,10 @@ require "test_helper"
 require "webmock/minitest"
 
 class BookTest < ActiveSupport::TestCase
+  setup do
+    stub_open_bd
+  end
+
   test "#valid_isbn?" do
     book1 = Book.new("9784101010014")
     assert book1.valid_isbn?
@@ -13,20 +17,6 @@ class BookTest < ActiveSupport::TestCase
   end
 
   test "#fetch" do
-    stub_request(:get, "https://api.openbd.jp/v1/get?isbn=9784101010014").
-      with(
-        headers: {
-              "Accept"=>"*/*",
-              "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-              "User-Agent"=>"Faraday v1.0.1"
-        }
-      ).
-        to_return(
-          status: 200,
-          body: File.read(Rails.root.join("test/fixtures/files/open_bd.json")),
-          headers: { "Content-Type" =>  "application/json" }
-        )
-
     book = Book.new("9784101010014")
     book.fetch
 
@@ -39,20 +29,6 @@ class BookTest < ActiveSupport::TestCase
   end
 
   test "#exist?" do
-    stub_request(:get, "https://api.openbd.jp/v1/get?isbn=9784101010014").
-      with(
-        headers: {
-              "Accept"=>"*/*",
-              "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-              "User-Agent"=>"Faraday v1.0.1"
-        }
-      ).
-        to_return(
-          status: 200,
-          body: File.read(Rails.root.join("test/fixtures/files/open_bd.json")),
-          headers: { "Content-Type" =>  "application/json" }
-        )
-
     book = Book.new("9784101010014")
     book.fetch
 

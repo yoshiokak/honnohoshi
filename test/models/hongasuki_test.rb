@@ -7,31 +7,8 @@ class HongasukiTest < ActiveSupport::TestCase
   setup do
     @hongasuki = Hongasuki.new("9784101010014")
 
-    stub_request(:get, "https://www.honzuki.jp/book/book_search/index.html?search_in=honzuki&isbn=9784101010014").
-      with(
-        headers: {
-          "Accept"=>"*/*",
-          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
-        }
-      ).
-        to_return(
-          status: 200,
-          body: File.read(Rails.root.join("test/fixtures/files/hongasuki_search_url.html")),
-          headers: { "Content-Type" =>  "text/html" }
-        )
-
-    stub_request(:get, "https://www.honzuki.jp/book/9931/").
-      with(
-        headers: {
-          "Accept"=>"*/*",
-          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
-        }
-      ).
-        to_return(
-          status: 200,
-          body: File.read(Rails.root.join("test/fixtures/files/hongasuki.html")),
-          headers: { "Content-Type" =>  "text/html" }
-        )
+    stub_hongasuki_search_results_by_isbn
+    stub_hongasuki
   end
 
   test "#name" do
