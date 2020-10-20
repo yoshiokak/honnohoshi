@@ -1,0 +1,18 @@
+.foot {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.foot link {
+  color: black;
+}
+
+.foot__copyright {
+  display: flex;
+}
+
+.foot__year {
+  margin-left: 0.5rem;
+}
