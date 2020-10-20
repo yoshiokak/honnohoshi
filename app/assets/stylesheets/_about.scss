@@ -1,0 +1,33 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about__title {
+  display: flex;
+  margin-top: 10rem;
+  margin-right: 2.5rem;
+}
+
+.about__text {
+  font-size: 100px;
+}
+
+.about__icon {
+  width: 100px;
+  height: 100px;
+  margin-top: 2.2rem;
+  margin-right: 0.5rem;
+}
+
+.about__description {
+  font-size: 19px;
+  width: 550px;
+}
+
+.about__help-link {
+  margin-left: 30rem;
+  font-size: 20px;
+}

@@ -1,0 +1,27 @@
+.main
+  .about
+    .about__title
+      .about__icon
+        = image_tag("icon.png")
+      .about__text
+        h1 本の星
+    .about__description
+      p 本の星は書籍のISBNを入力することで、複数サービス(「楽天ブックス」、「読書メーター」、「本が好き！」)から書籍の評価を取得し、表示するサービスです。
+    .about__help-link
+      = link_to "使い方", help_path
+
+  = render "form"
+
+  .form-helper
+    = link_to "ISBNとは", "https://isbn.jpo.or.jp/index.php/fix__about/fix__about_2/"
+
+.foot
+  .foot__disclaimer-link
+    = link_to "免責事項", disclaimer_path
+  .foot__copyright
+    .foot__copyright-mark
+      i.fa.fa-copyright
+    .foot__name
+      | kaitoyoshioka
+    .foot__year
+      = Date.today.year

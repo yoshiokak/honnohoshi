@@ -76,3 +76,5 @@ gem "font-awesome-rails"
 gem "render_async"
 
 gem "parallel"
+
+gem "bulma-rails"
