@@ -16,9 +16,9 @@ class BookTest < ActiveSupport::TestCase
     assert book2.valid_isbn?
   end
 
-  test "#fetch" do
+  test "#fetch_open_bd" do
     book = Book.new("9784101010014")
-    book.fetch
+    book.fetch_open_bd
 
     assert_equal("https://cover.openbd.jp/9784101010014.jpg", book.cover_image)
     assert_equal("新潮社", book.publisher)
@@ -28,10 +28,9 @@ class BookTest < ActiveSupport::TestCase
     assert_equal("9784101010014", book.isbn13)
   end
 
-  test "#exist?" do
+  test "#exists_in_open_bd?" do
     book = Book.new("9784101010014")
-    book.fetch
 
-    assert book.exist?
+    assert book.exists_in_open_bd?
   end
 end
