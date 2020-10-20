@@ -10,12 +10,10 @@ class Bookmeter
   end
 
   def fetch
-    if book_exists?
-      @url = parse_url
-      @doc = Nokogiri::HTML.parse(URI.open(@url))
-      @average_rating = parse_average_rating
-      @review_count = parse_review_count
-    end
+    @url = parse_url
+    @doc = Nokogiri::HTML.parse(URI.open(@url))
+    @average_rating = parse_average_rating
+    @review_count = parse_review_count
   end
 
   def name
