@@ -88,8 +88,6 @@ class SearchTest < ApplicationSystemTestCase
   end
 
   test "search by ISBN to view Bookmeter rating" do
-    @bookmeter = Bookmeter.new("9784101010014")
-
     stub_bookmeter_search_results_by_isbn
     stub_bookmeter
 
@@ -105,8 +103,6 @@ class SearchTest < ApplicationSystemTestCase
   end
 
   test "search by ISBN to view Hongasuki rating" do
-    @hongasuki = Hongasuki.new("9784101010014")
-
     stub_hongasuki_search_results_by_isbn
     stub_hongasuki
 
