@@ -91,4 +91,19 @@ module StubHelper
           headers: { "Content-Type" =>  "text/html" }
         )
   end
+
+  def stub_amazon
+    stub_request(:get, "https://amazon-price1.p.rapidapi.com/search?keywords=9784101010014&marketplace=JP").
+      with(
+        headers: {
+          "Accept"=>"*/*",
+          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/amazon.json")),
+          headers: { "Content-Type" =>  "application/json" }
+        )
+  end
 end
