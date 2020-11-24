@@ -7,6 +7,12 @@ class SearchTest < ApplicationSystemTestCase
   setup do
     WebMock.allow_net_connect!(net_http_connect_on_start: true)
     stub_open_bd
+    stub_amazon
+    stub_rakuten_books
+    stub_bookmeter_search_results_by_isbn
+    stub_bookmeter
+    stub_hongasuki_search_results_by_isbn
+    stub_hongasuki
   end
 
   test "search by ISBN-13 to view book information" do
@@ -74,8 +80,6 @@ class SearchTest < ApplicationSystemTestCase
   end
 
   test "search by ISBN to view Amazon rating" do
-    stub_rakuten_books
-
     visit root_path
 
     fill_in "isbn", with: "978-4101010014"
@@ -88,8 +92,6 @@ class SearchTest < ApplicationSystemTestCase
   end
 
   test "search by ISBN to view RakutenBooks rating" do
-    stub_rakuten_books
-
     visit root_path
 
     fill_in "isbn", with: "978-4101010014"
@@ -102,9 +104,6 @@ class SearchTest < ApplicationSystemTestCase
   end
 
   test "search by ISBN to view Bookmeter rating" do
-    stub_bookmeter_search_results_by_isbn
-    stub_bookmeter
-
     visit root_path
 
     fill_in "isbn", with: "978-4101010014"
@@ -117,9 +116,6 @@ class SearchTest < ApplicationSystemTestCase
   end
 
   test "search by ISBN to view Hongasuki rating" do
-    stub_hongasuki_search_results_by_isbn
-    stub_hongasuki
-
     visit root_path
 
     fill_in "isbn", with: "978-4101010014"
