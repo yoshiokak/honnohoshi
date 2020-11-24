@@ -19,6 +19,7 @@ class Service
 
   def self.service_list
     [
+      "Amazon",
       "RakutenBooks",
       "Bookmeter",
       "Hongasuki"
