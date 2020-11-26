@@ -5,6 +5,6 @@ class SearchesController < ApplicationController
     return if params[:isbn].blank?
 
     @book = Book.new(params[:isbn])
-    @book.fetch_open_bd if @book.valid_isbn? && @book.exists_in_open_bd?
+    @book.fetch if @book.valid_isbn? && @book.exists?
   end
 end

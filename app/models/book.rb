@@ -8,12 +8,12 @@ class Book
     @isbn = isbn.delete("-")
   end
 
-  def exists_in_open_bd?
-    !search_open_bd(@isbn).empty?
+  def exists?
+    !search(@isbn).empty?
   end
 
-  def fetch_open_bd
-    search_open_bd(@isbn).resources.each do |resource|
+  def fetch
+    search(@isbn).resources.each do |resource|
       @cover_image = resource.cover_image
       @publisher = resource.publisher
       @release_date = resource.release_date
@@ -32,7 +32,7 @@ class Book
   end
 
   private
-    def search_open_bd(isbn)
+    def search(isbn)
       client = OpenBD::Client.new
       client.search(isbns: [isbn])
     end

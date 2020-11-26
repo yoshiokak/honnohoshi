@@ -4,8 +4,8 @@
   - unless @book.valid_isbn?
     p ISBN-13またはISBN-10を入力してください
 
-  - if @book.valid_isbn? && !@book.exists_in_open_bd?
+  - if @book.valid_isbn? && !@book.exists?
     p 書籍が見つかりませんでした
 
-  - if @book.exists_in_open_bd?
+  - if @book.exists?
     = render "search_result"
