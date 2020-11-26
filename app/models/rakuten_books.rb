@@ -16,11 +16,7 @@ class RakutenBooks
   end
 
   def book_exists?
-    if RakutenWebService::Books::Book.search(isbn: @isbn).first.nil?
-      false
-    else
-      true
-    end
+    !RakutenWebService::Books::Book.search(isbn: @isbn).first.nil?
   end
 
   def name

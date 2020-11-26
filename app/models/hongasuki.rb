@@ -21,11 +21,7 @@ class Hongasuki
   end
 
   def book_exists?
-    if parse_book_path.nil?
-      false
-    else
-      true
-    end
+    !parse_book_path.nil?
   end
 
   private

@@ -9,7 +9,7 @@ class Book
   end
 
   def exists_in_open_bd?
-    search_open_bd(@isbn).empty? ? false : true
+    !search_open_bd(@isbn).empty?
   end
 
   def fetch_open_bd
