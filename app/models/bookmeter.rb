@@ -10,7 +10,7 @@ class Bookmeter
   end
 
   def fetch
-    @url = parse_url
+    @url = "https://bookmeter.com#{parse_book_path}"
     @doc = Nokogiri::HTML.parse(URI.open(@url))
     @average_rating = parse_average_rating
     @review_count = parse_review_count
@@ -25,11 +25,9 @@ class Bookmeter
   end
 
   private
-    def search_url
-      "https://bookmeter.com/search?keyword=#{@isbn}"
-    end
-
     def parse_book_path
+      search_url = "https://bookmeter.com/search?keyword=#{@isbn}"
+
       response = Net::HTTP.get(URI.parse(search_url))
       hash = JSON.parse(response)
 
@@ -38,10 +36,6 @@ class Bookmeter
       else
         hash["resources"][0]["contents"]["book"]["path"]
       end
-    end
-
-    def parse_url
-      "https://bookmeter.com#{parse_book_path}"
     end
 
     def parse_average_rating
