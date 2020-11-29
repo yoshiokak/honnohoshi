@@ -2,9 +2,9 @@
 
 class SearchesController < ApplicationController
   def show
-    return if params[:isbn].blank?
+    return unless ISBN.valid?(params[:isbn])
 
-    @book = Book.new(params[:isbn])
-    @book.fetch if @book.valid_isbn? && @book.exists?
+    @isbn = params[:isbn]
+    @book = Book.new(@isbn).fetch
   end
 end

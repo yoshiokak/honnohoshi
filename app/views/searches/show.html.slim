@@ -1,11 +1,8 @@
 = render "navbar"
 
-- if @book.present?
-  - unless @book.valid_isbn?
+- if !ISBN.valid?(@isbn)
     p ISBN-13またはISBN-10を入力してください
-
-  - if @book.valid_isbn? && !@book.exists?
+- elsif !@book.exists?
     p 書籍が見つかりませんでした
-
-  - if @book.exists?
-    = render "search_result"
+- elsif @book.exists?
+  = render "search_result"

@@ -23,13 +23,7 @@ class Book
       @author = resource.author
       @isbn13 = resource.isbn
     end
-  end
 
-  def valid_isbn?
-    if /^[0-9]{13}$/ =~ @isbn || /^[0-9]{9}[[0-9]|x|X]$/ =~ @isbn
-      true
-    else
-      false
-    end
+    self
   end
 end

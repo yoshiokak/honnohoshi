@@ -8,14 +8,6 @@ class BookTest < ActiveSupport::TestCase
     stub_open_bd
   end
 
-  test "#valid_isbn?" do
-    book1 = Book.new("9784101010014")
-    assert book1.valid_isbn?
-
-    book2 = Book.new("4101010013")
-    assert book2.valid_isbn?
-  end
-
   test "#fetch" do
     book = Book.new("9784101010014")
     book.fetch

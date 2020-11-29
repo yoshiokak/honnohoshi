@@ -99,6 +99,7 @@ GEM
       hpricot
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
+    isbn (2.0.11)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
     listen (3.2.1)
@@ -264,6 +265,7 @@ DEPENDENCIES
   dotenv-rails
   font-awesome-rails
   html2slim
+  isbn
   jbuilder (~> 2.7)
   listen (~> 3.2)
   nokogiri
