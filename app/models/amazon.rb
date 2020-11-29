@@ -10,9 +10,11 @@ class Amazon
   def fetch
     @book = RakutenRapidAPI::AmazonPrice.search(@isbn).first
 
-    @url = @book["detailPageURL"]
-    @average_rating = @book["rating"]
-    @review_count = @book["totalReviews"]
+    if book_exists?
+      @url = @book["detailPageURL"]
+      @average_rating = @book["rating"]
+      @review_count = @book["totalReviews"]
+    end
   end
 
   def book_exists?

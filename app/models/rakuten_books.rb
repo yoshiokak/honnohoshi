@@ -10,9 +10,11 @@ class RakutenBooks
   def fetch
     @book = RakutenWebService::Books::Book.search(isbn: @isbn).first
 
-    @url = @book.affiliate_url
-    @average_rating = @book.review_average
-    @review_count = @book.review_count
+    if book_exists?
+      @url = @book.affiliate_url
+      @average_rating = @book.review_average
+      @review_count = @book.review_count
+    end
   end
 
   def book_exists?

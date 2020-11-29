@@ -11,10 +11,13 @@ class Hongasuki
 
   def fetch
     @book_path = parse_book_path
-    @url = "https://www.honzuki.jp#{@book_path}"
-    @doc = Nokogiri::HTML.parse(URI.open(@url, ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE))
-    @average_rating = parse_average_rating
-    @review_count = parse_review_count
+
+    if book_exists?
+      @url = "https://www.honzuki.jp#{@book_path}"
+      @doc = Nokogiri::HTML.parse(URI.open(@url, ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE))
+      @average_rating = parse_average_rating
+      @review_count = parse_review_count
+    end
   end
 
   def name

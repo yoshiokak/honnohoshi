@@ -15,13 +15,15 @@ class Book
   def fetch
     @book = OpenBD::Client.new.search(isbns: [@isbn])
 
-    @book.resources.each do |resource|
-      @cover_image = resource.cover_image
-      @publisher = resource.publisher
-      @release_date = resource.release_date
-      @title = resource.title
-      @author = resource.author
-      @isbn13 = resource.isbn
+    if exists?
+      @book.resources.each do |resource|
+        @cover_image = resource.cover_image
+        @publisher = resource.publisher
+        @release_date = resource.release_date
+        @title = resource.title
+        @author = resource.author
+        @isbn13 = resource.isbn
+      end
     end
 
     self
