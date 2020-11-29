@@ -69,14 +69,13 @@ class SearchTest < ApplicationSystemTestCase
     fill_in "isbn", with: "9784101010013"
     find(".search__btn").click
 
-    assert_text("書籍が見つかりませんでした")
+    assert_text("ISBN-13またはISBN-10を入力してください")
   end
 
-  test "when visit search_path, don't view error message" do
+  test "when visit search_path, view error message" do
     visit search_path
 
-    assert_no_text("ISBN-13またはISBN-10を入力してください")
-    assert_no_text("書籍が見つかりませんでした")
+    assert_text("ISBN-13またはISBN-10を入力してください")
   end
 
   test "search by ISBN to view Amazon rating" do
