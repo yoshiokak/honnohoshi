@@ -1,7 +1,7 @@
 = render "navbar"
 
 - if !ISBN.valid?(@isbn)
-    p ISBN-13またはISBN-10を入力してください
+    p 有効なISBN-13または有効なISBN-10を入力してください
 - elsif !@book.exists?
     p 書籍が見つかりませんでした
 - elsif @book.exists?
