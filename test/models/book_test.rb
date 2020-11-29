@@ -30,6 +30,7 @@ class BookTest < ActiveSupport::TestCase
 
   test "#exists?" do
     book = Book.new("9784101010014")
+    book.fetch
 
     assert book.exists?
   end

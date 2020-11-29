@@ -10,7 +10,8 @@ class Bookmeter
   end
 
   def fetch
-    @url = "https://bookmeter.com#{parse_book_path}"
+    @book_path = parse_book_path
+    @url = "https://bookmeter.com#{@book_path}"
     @doc = Nokogiri::HTML.parse(URI.open(@url))
     @average_rating = parse_average_rating
     @review_count = parse_review_count
@@ -21,7 +22,7 @@ class Bookmeter
   end
 
   def book_exists?
-    !parse_book_path.nil?
+    !@book_path.nil?
   end
 
   private

@@ -9,11 +9,13 @@ class Book
   end
 
   def exists?
-    !OpenBD::Client.new.search(isbns: [@isbn]).empty?
+    !@book.empty?
   end
 
   def fetch
-    OpenBD::Client.new.search(isbns: [@isbn]).resources.each do |resource|
+    @book = OpenBD::Client.new.search(isbns: [@isbn])
+
+    @book.resources.each do |resource|
       @cover_image = resource.cover_image
       @publisher = resource.publisher
       @release_date = resource.release_date

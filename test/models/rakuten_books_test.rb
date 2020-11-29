@@ -15,6 +15,7 @@ class RakutenBooksTest < ActiveSupport::TestCase
   end
 
   test "#book_exists?" do
+    @rakuten_books.fetch
     assert @rakuten_books.book_exists?
   end
 
