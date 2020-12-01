@@ -5,6 +5,6 @@ class SearchesController < ApplicationController
     return unless ISBN.valid?(params[:isbn])
 
     @isbn = params[:isbn]
-    @book = Book.new(@isbn).fetch
+    @book = Book.new.search(@isbn)
   end
 end

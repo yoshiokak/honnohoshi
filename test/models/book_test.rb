@@ -8,9 +8,8 @@ class BookTest < ActiveSupport::TestCase
     stub_open_bd
   end
 
-  test "#fetch" do
-    book = Book.new("9784101010014")
-    book.fetch
+  test "#search" do
+    book = Book.new.search("9784101010014")
 
     assert_equal("https://cover.openbd.jp/9784101010014.jpg", book.cover_image)
     assert_equal("新潮社", book.publisher)
@@ -21,8 +20,7 @@ class BookTest < ActiveSupport::TestCase
   end
 
   test "#exists?" do
-    book = Book.new("9784101010014")
-    book.fetch
+    book = Book.new.search("9784101010014")
 
     assert book.exists?
   end
