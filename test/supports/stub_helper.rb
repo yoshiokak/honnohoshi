@@ -15,6 +15,20 @@ module StubHelper
           body: File.read(Rails.root.join("test/fixtures/files/open_bd.json")),
           headers: { "Content-Type" =>  "application/json" }
         )
+
+    stub_request(:get, "https://api.openbd.jp/v1/get?isbn=4101010013").
+      with(
+        headers: {
+              "Accept"=>"*/*",
+              "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+              "User-Agent"=>"Faraday v1.0.1"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/open_bd.json")),
+          headers: { "Content-Type" =>  "application/json" }
+        )
   end
 
   def stub_rakuten_books
