@@ -3,6 +3,8 @@
 require "open-uri"
 
 class Bookmeter
+  include Serviceable
+
   attr_reader :average_rating, :review_count, :url
 
   def search(isbn)

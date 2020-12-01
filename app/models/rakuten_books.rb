@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class RakutenBooks
+  include Serviceable
+
   attr_reader :average_rating, :review_count, :url
 
   def search(isbn)

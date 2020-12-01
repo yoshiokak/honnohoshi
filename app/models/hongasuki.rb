@@ -3,6 +3,8 @@
 require "open-uri"
 
 class Hongasuki
+  include Serviceable
+
   attr_reader :average_rating, :review_count, :url
 
   def search(isbn)

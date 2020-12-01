@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Amazon
+  include Serviceable
+
   attr_reader :average_rating, :review_count, :url
 
   def search(isbn)
