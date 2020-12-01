@@ -18,7 +18,7 @@ class SearchTest < ApplicationSystemTestCase
   test "search by ISBN-13 to view book information and book reviews" do
     visit root_path
 
-    fill_in "isbn", with: "978-4101010014"
+    fill_in "isbn", with: "9784101010014"
     find(".search__btn").click
 
     assert find("img[src='https://cover.openbd.jp/9784101010014.jpg']")
