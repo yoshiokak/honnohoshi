@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Service
+class BulkSearcher
   def self.search(isbn)
     services = []
 
