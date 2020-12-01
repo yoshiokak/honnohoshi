@@ -5,12 +5,8 @@ require "open-uri"
 class Hongasuki
   attr_reader :average_rating, :review_count, :url
 
-  def initialize(isbn)
-    @isbn = isbn
-  end
-
-  def fetch
-    @book_path = parse_book_path
+  def search(isbn)
+    @book_path = parse_book_path(isbn)
 
     if book_exists?
       @url = "https://www.honzuki.jp#{@book_path}"
@@ -29,8 +25,8 @@ class Hongasuki
   end
 
   private
-    def parse_book_path
-      search_url = "https://www.honzuki.jp/book/book_search/index.html?search_in=honzuki&isbn=#{@isbn}"
+    def parse_book_path(isbn)
+      search_url = "https://www.honzuki.jp/book/book_search/index.html?search_in=honzuki&isbn=#{isbn}"
 
       doc = Nokogiri::HTML.parse(URI.open(search_url, ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE))
       if doc.at_css("td > a").nil?

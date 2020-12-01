@@ -5,7 +5,7 @@ require "webmock/minitest"
 
 class RakutenBooksTest < ActiveSupport::TestCase
   setup do
-    @rakuten_books = RakutenBooks.new("9784101010014")
+    @rakuten_books = RakutenBooks.new
 
     stub_rakuten_books
   end
@@ -15,12 +15,12 @@ class RakutenBooksTest < ActiveSupport::TestCase
   end
 
   test "#book_exists?" do
-    @rakuten_books.fetch
+    @rakuten_books.search("9784101010014")
     assert @rakuten_books.book_exists?
   end
 
   test "#fetch" do
-    @rakuten_books.fetch
+    @rakuten_books.search("9784101010014")
     assert_equal("3.93", @rakuten_books.average_rating)
     assert_equal(192, @rakuten_books.review_count)
     assert_equal("https://hb.afl.rakuten.co.jp/hgc/g00q0727.zh7wt7c9.g00q0727.zh7wub5e/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F1656073%2F",

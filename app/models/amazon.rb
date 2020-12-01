@@ -3,12 +3,8 @@
 class Amazon
   attr_reader :average_rating, :review_count, :url
 
-  def initialize(isbn)
-    @isbn = isbn
-  end
-
-  def fetch
-    @book = RakutenRapidAPI::AmazonPrice.search(@isbn).first
+  def search(isbn)
+    @book = RakutenRapidAPI::AmazonPrice.search(isbn).first
 
     if book_exists?
       @url = @book["detailPageURL"]

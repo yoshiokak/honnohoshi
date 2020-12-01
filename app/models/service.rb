@@ -1,17 +1,15 @@
 # frozen_string_literal: true
 
-require "parallel"
-
 class Service
   def self.search(isbn)
     services = []
 
     service_list.each do |service_name|
-      services << Object.const_get(service_name).new(isbn)
+      services << Object.const_get(service_name).new
     end
 
-    Parallel.each(services, in_threads: service_list.size) do |service|
-      service.fetch
+    Parallel.each(services, in_threads: services.size) do |service|
+      service.search(isbn)
     end
 
     services

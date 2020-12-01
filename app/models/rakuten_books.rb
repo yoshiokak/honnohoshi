@@ -3,12 +3,8 @@
 class RakutenBooks
   attr_reader :average_rating, :review_count, :url
 
-  def initialize(isbn)
-    @isbn = isbn
-  end
-
-  def fetch
-    @book = RakutenWebService::Books::Book.search(isbn: @isbn).first
+  def search(isbn)
+    @book = RakutenWebService::Books::Book.search(isbn: isbn).first
 
     if book_exists?
       @url = @book.affiliate_url

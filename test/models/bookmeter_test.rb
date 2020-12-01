@@ -5,7 +5,7 @@ require "webmock/minitest"
 
 class BookmeterTest < ActiveSupport::TestCase
   setup do
-    @bookmeter = Bookmeter.new("9784101010014")
+    @bookmeter = Bookmeter.new
 
     stub_bookmeter_search_results_by_isbn
     stub_bookmeter
@@ -16,12 +16,12 @@ class BookmeterTest < ActiveSupport::TestCase
   end
 
   test "#book_exists?" do
-    @bookmeter.fetch
+    @bookmeter.search("9784101010014")
     assert @bookmeter.book_exists?
   end
 
-  test "#fetch" do
-    @bookmeter.fetch
+  test "#search" do
+    @bookmeter.search("9784101010014")
     assert_equal("https://bookmeter.com/books/548397", @bookmeter.url)
     assert_equal(4.1, @bookmeter.average_rating)
     assert_equal("1094", @bookmeter.review_count)

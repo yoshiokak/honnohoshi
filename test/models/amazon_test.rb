@@ -5,7 +5,7 @@ require "webmock/minitest"
 
 class AmazonTest < ActiveSupport::TestCase
   setup do
-    @amazon = Amazon.new("9784101010014")
+    @amazon = Amazon.new
 
     stub_amazon
   end
@@ -15,12 +15,12 @@ class AmazonTest < ActiveSupport::TestCase
   end
 
   test "#book_exists?" do
-    @amazon.fetch
+    @amazon.search("9784101010014")
     assert @amazon.book_exists?
   end
 
-  test "#fetch" do
-    @amazon.fetch
+  test "#search" do
+    @amazon.search("9784101010014")
     assert_equal("https://www.amazon.co.jp/dp/B00CL6N16Q", @amazon.url)
     assert_equal("3.9", @amazon.average_rating)
     assert_equal("762", @amazon.review_count)

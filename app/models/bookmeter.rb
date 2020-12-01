@@ -5,12 +5,8 @@ require "open-uri"
 class Bookmeter
   attr_reader :average_rating, :review_count, :url
 
-  def initialize(isbn)
-    @isbn = isbn
-  end
-
-  def fetch
-    @book_path = parse_book_path
+  def search(isbn)
+    @book_path = parse_book_path(isbn)
 
     if book_exists?
       @url = "https://bookmeter.com#{@book_path}"
@@ -29,8 +25,8 @@ class Bookmeter
   end
 
   private
-    def parse_book_path
-      search_url = "https://bookmeter.com/search?keyword=#{@isbn}"
+    def parse_book_path(isbn)
+      search_url = "https://bookmeter.com/search?keyword=#{isbn}"
 
       response = Net::HTTP.get(URI.parse(search_url))
       hash = JSON.parse(response)
