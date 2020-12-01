@@ -7,6 +7,14 @@ class Bookmeter
 
   attr_reader :average_rating, :review_count, :url
 
+  def name
+    "読書メーター"
+  end
+
+  def book_exists?
+    !@book_path.nil?
+  end
+
   def search(isbn)
     @book_path = parse_book_path(isbn)
 
@@ -16,14 +24,6 @@ class Bookmeter
       @average_rating = parse_average_rating
       @review_count = parse_review_count
     end
-  end
-
-  def name
-    "読書メーター"
-  end
-
-  def book_exists?
-    !@book_path.nil?
   end
 
   private

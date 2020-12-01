@@ -7,6 +7,14 @@ class Hongasuki
 
   attr_reader :average_rating, :review_count, :url
 
+  def name
+    "本が好き！"
+  end
+
+  def book_exists?
+    !@book_path.nil?
+  end
+
   def search(isbn)
     @book_path = parse_book_path(isbn)
 
@@ -16,14 +24,6 @@ class Hongasuki
       @average_rating = parse_average_rating
       @review_count = parse_review_count
     end
-  end
-
-  def name
-    "本が好き！"
-  end
-
-  def book_exists?
-    !@book_path.nil?
   end
 
   private
