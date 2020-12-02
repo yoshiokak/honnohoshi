@@ -18,7 +18,7 @@ class RakutenBooksBookRatingTest < ActiveSupport::TestCase
     assert @rakuten_books_book_rating.book_exists?
   end
 
-  test "#fetch" do
+  test "#search" do
     @rakuten_books_book_rating.search("9784101010014")
     assert_equal("3.93", @rakuten_books_book_rating.average_rating)
     assert_equal(192, @rakuten_books_book_rating.review_count)
