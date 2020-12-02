@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "test_helper"
-require "webmock/minitest"
 
 class BookTest < ActiveSupport::TestCase
   setup do

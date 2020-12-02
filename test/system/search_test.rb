@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
 require "application_system_test_case"
-require "webmock/minitest"
 
 class SearchTest < ApplicationSystemTestCase
   setup do
-    WebMock.allow_net_connect!(net_http_connect_on_start: true)
     stub_open_bd
     stub_amazon
     stub_rakuten_books
