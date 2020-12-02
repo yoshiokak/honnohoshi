@@ -2,6 +2,6 @@
 
 class BookRatingsController < ApplicationController
   def index
-    @services = BulkSearcher.search(params[:isbn13])
+    @book_ratings = BulkSearcher.search(params[:isbn13])
   end
 end

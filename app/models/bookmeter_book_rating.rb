@@ -2,12 +2,12 @@
 
 require "open-uri"
 
-class Bookmeter
-  include Serviceable
+class BookmeterBookRating
+  include BookRatingable
 
   attr_reader :average_rating, :review_count, :url
 
-  def name
+  def service_name
     "読書メーター"
   end
 

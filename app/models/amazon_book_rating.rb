@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class Amazon
-  include Serviceable
+class AmazonBookRating
+  include BookRatingable
 
   attr_reader :average_rating, :review_count, :url
 
-  def name
+  def service_name
     "Amazon"
   end
 

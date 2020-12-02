@@ -2,27 +2,27 @@
 
 class BulkSearcher
   def self.search(isbn)
-    services = []
+    book_ratings = []
 
-    service_list.each do |service_name|
-      services << Object.const_get(service_name).new
+    book_rating_target_list.each do |book_rating|
+      book_ratings << Object.const_get(book_rating).new
     end
 
-    Parallel.each(services, in_threads: services.size) do |service|
-      service.search(isbn)
+    Parallel.each(book_ratings, in_threads: book_ratings.size) do |book_rating|
+      book_rating.search(isbn)
     end
 
-    services
+    book_ratings
   end
 
-  def self.service_list
+  def self.book_rating_target_list
     [
-      "Amazon",
-      "RakutenBooks",
-      "Bookmeter",
-      "Hongasuki"
+      "AmazonBookRating",
+      "RakutenBooksBookRating",
+      "BookmeterBookRating",
+      "HongasukiBookRating"
     ]
   end
 
-  private_class_method :service_list
+  private_class_method :book_rating_target_list
 end

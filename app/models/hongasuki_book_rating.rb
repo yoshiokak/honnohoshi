@@ -2,12 +2,12 @@
 
 require "open-uri"
 
-class Hongasuki
-  include Serviceable
+class HongasukiBookRating
+  include BookRatingable
 
   attr_reader :average_rating, :review_count, :url
 
-  def name
+  def service_name
     "本が好き！"
   end
 
