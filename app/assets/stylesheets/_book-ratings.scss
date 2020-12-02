@@ -1,19 +1,19 @@
-.book-reviews {
+.book-ratings {
   flex-direction: column;
 }
 
-.book-reviews__book-review {
+.book-ratings__book-rating {
   display: flex;
 }
 
-.book-reviews__star-rating {
+.book-ratings__star-rating {
   position: relative;
   width: 5em;
   height: 2em;
   font-size: 50px;
 }
 
-.book-reviews__star-rating--front {
+.book-ratings__star-rating--front {
   position: absolute;
   top: 0;
   left: 0;
@@ -21,24 +21,24 @@
   color: #ffcc33;
 }
 
-.book-reviews__star-rating--back {
+.book-ratings__star-rating--back {
   color: #ccc;
 }
 
-.book-reviews__average-rating {
+.book-ratings__average-rating {
   margin-top: 1em;
   margin-left: 1.3em;
   font-weight: bold;
   font-size: 25px;
 }
 
-.book-reviews__review-count {
+.book-ratings__review-count {
   margin-top: 1em;
   margin-left: 1.3em;
   font-size: 25px;
 }
 
-.book-reviews__url {
+.book-ratings__url {
   margin-top: 1em;
   margin-left: 1.3em;
   font-size: 25px;

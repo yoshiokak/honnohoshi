@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   get "/disclaimer", to: "disclaimer#index"
 
   resource :search, only: :show
-  resources :book_reviews, only: :index
+  resources :book_ratings, only: :index
 end

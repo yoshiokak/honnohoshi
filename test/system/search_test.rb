@@ -15,7 +15,7 @@ class SearchTest < ApplicationSystemTestCase
     stub_hongasuki
   end
 
-  test "search by ISBN-13 to view book information and book reviews" do
+  test "search by ISBN-13 to view book information and book ratings" do
     visit root_path
 
     fill_in "isbn", with: "9784101010014"
@@ -27,24 +27,24 @@ class SearchTest < ApplicationSystemTestCase
     assert_text("新潮社")
     assert_text("2003-06")
 
-    assert page.all(".book-reviews__star-rating")[0]
-    assert_equal("3.9", page.all(".book-reviews__average-rating")[0].text)
-    assert_equal("(レビュー762件)", page.all(".book-reviews__review-count")[0].text)
+    assert page.all(".book-ratings__star-rating")[0]
+    assert_equal("3.9", page.all(".book-ratings__average-rating")[0].text)
+    assert_equal("(レビュー762件)", page.all(".book-ratings__review-count")[0].text)
     assert has_link?("Amazon")
 
-    assert page.all(".book-reviews__star-rating")[1]
-    assert_equal("3.93", page.all(".book-reviews__average-rating")[1].text)
-    assert_equal("(レビュー192件)", page.all(".book-reviews__review-count")[1].text)
+    assert page.all(".book-ratings__star-rating")[1]
+    assert_equal("3.93", page.all(".book-ratings__average-rating")[1].text)
+    assert_equal("(レビュー192件)", page.all(".book-ratings__review-count")[1].text)
     assert has_link?("楽天ブックス")
 
-    assert page.all(".book-reviews__star-rating")[2]
-    assert_equal("4.1", page.all(".book-reviews__average-rating")[2].text)
-    assert_equal("(レビュー1094件)", page.all(".book-reviews__review-count")[2].text)
+    assert page.all(".book-ratings__star-rating")[2]
+    assert_equal("4.1", page.all(".book-ratings__average-rating")[2].text)
+    assert_equal("(レビュー1094件)", page.all(".book-ratings__review-count")[2].text)
     assert has_link?("読書メーター")
 
-    assert page.all(".book-reviews__star-rating")[3]
-    assert_equal("4.11", page.all(".book-reviews__average-rating")[3].text)
-    assert_equal("(レビュー10件)", page.all(".book-reviews__review-count")[3].text)
+    assert page.all(".book-ratings__star-rating")[3]
+    assert_equal("4.11", page.all(".book-ratings__average-rating")[3].text)
+    assert_equal("(レビュー10件)", page.all(".book-ratings__review-count")[3].text)
     assert has_link?("本が好き！")
   end
 
