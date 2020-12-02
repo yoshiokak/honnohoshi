@@ -4,36 +4,24 @@ class Book
   attr_reader :author, :cover_image, :publisher,
               :release_date, :title, :isbn13
 
-  def initialize(isbn)
-    @isbn = isbn.delete("-")
+  def exists?
+    !@book.empty?
   end
 
-  def exists_in_open_bd?
-    search_open_bd(@isbn).empty? ? false : true
-  end
+  def search(isbn)
+    @book = OpenBD::Client.new.search(isbns: [isbn.delete("-")])
 
-  def fetch_open_bd
-    search_open_bd(@isbn).resources.each do |resource|
-      @cover_image = resource.cover_image
-      @publisher = resource.publisher
-      @release_date = resource.release_date
-      @title = resource.title
-      @author = resource.author
-      @isbn13 = resource.isbn
+    if exists?
+      @book.resources.each do |resource|
+        @cover_image = resource.cover_image
+        @publisher = resource.publisher
+        @release_date = resource.release_date
+        @title = resource.title
+        @author = resource.author
+        @isbn13 = resource.isbn
+      end
     end
-  end
 
-  def valid_isbn?
-    if /^[0-9]{13}$/ =~ @isbn || /^[0-9]{9}[[0-9]|x|X]$/ =~ @isbn
-      true
-    else
-      false
-    end
+    self
   end
-
-  private
-    def search_open_bd(isbn)
-      client = OpenBD::Client.new
-      client.search(isbns: [isbn])
-    end
 end

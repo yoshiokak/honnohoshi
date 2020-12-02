@@ -78,3 +78,5 @@ gem "render_async"
 gem "parallel"
 
 gem "bulma-rails"
+
+gem "isbn"

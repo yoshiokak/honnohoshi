@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 require "test_helper"
-require "webmock/minitest"
 
-class ServiceTest < ActiveSupport::TestCase
+class BulkSearcher < ActiveSupport::TestCase
   setup do
     stub_amazon
     stub_rakuten_books
@@ -14,7 +13,7 @@ class ServiceTest < ActiveSupport::TestCase
   end
 
   test ".search" do
-    services = Service.search("9784101010014")
+    services = BulkSearcher.search("9784101010014")
 
     assert services[0].kind_of?(Amazon)
     assert services[1].kind_of?(RakutenBooks)

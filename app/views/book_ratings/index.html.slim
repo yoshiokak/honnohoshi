@@ -1,0 +1,17 @@
+.book-ratings
+  - @book_ratings.each do |book_rating|
+    - if book_rating.book_exists?
+      .book-ratings__book-rating
+        .book-ratings__star-rating
+          .book-ratings__star-rating--front style="width: #{20 * book_rating.average_rating.to_f}%"
+            | ★★★★★
+          .book-ratings__star-rating--back
+            | ★★★★★
+        .book-ratings__average-rating
+          = book_rating.average_rating
+        .book-ratings__review-count
+          = "(レビュー#{book_rating.review_count}件)"
+        .book-ratings__url
+          = link_to book_rating.service_name, book_rating.url
+    - else
+      p #{book_rating.service_name}には書籍が存在しませんでした
