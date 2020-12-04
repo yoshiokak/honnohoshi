@@ -18,11 +18,11 @@
 
 ## Lint
 
-`rubocop -A`
+`rubocop`
 
 ## API
 
-本アプリではRakuten API(https://webservice.rakuten.co.jp/)とAmazon Price API(https://api.rakuten.net/ajmorenodelarosa/api/amazon-price1)を使用しています。
+本アプリではRakuten API(https://webservice.rakuten.co.jp)とAmazon Price API(https://api.rakuten.net/ajmorenodelarosa/api/amazon-price1)を使用しています。
 
 それぞれで取得したAPI Keyを以下の環境変数にセットしてください。
 
