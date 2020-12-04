@@ -2,9 +2,7 @@
 
 require "open-uri"
 
-class BookmeterBookRating
-  include BookRatingable
-
+class BookmeterBookRating < BookRating
   attr_reader :average_rating, :review_count, :url
 
   def service_name

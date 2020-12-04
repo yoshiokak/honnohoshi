@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-class AmazonBookRating
-  include BookRatingable
-
+class AmazonBookRating < BookRating
   attr_reader :average_rating, :review_count, :url
 
   def service_name

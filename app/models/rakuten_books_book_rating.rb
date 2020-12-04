@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-class RakutenBooksBookRating
-  include BookRatingable
-
+class RakutenBooksBookRating < BookRating
   attr_reader :average_rating, :review_count, :url
 
   def service_name

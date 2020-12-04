@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module BookRatingable
+class BookRating
   def service_name
     raise NotImplementedError
   end
