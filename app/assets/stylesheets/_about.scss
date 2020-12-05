@@ -38,6 +38,23 @@
 .about__description {
   font-size: 19px;
   width: 550px;
+  text-align: center;
+}
+
+.about__logo {
+  display: flex;
+}
+
+.about__logo img {
+  margin-right: 1rem;
+}
+
+.about__bookmeter-logo {
+  margin-top: 3rem;
+}
+
+.about__hongasuki-logo {
+  margin-top: 2.2rem;
 }
 
 .about__help-link {
