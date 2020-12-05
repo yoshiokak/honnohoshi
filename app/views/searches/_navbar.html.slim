@@ -1,6 +1,8 @@
 .navbar
   .navbar-brand
-    a.navbar-item href="/" 本の星
+    .navbar-item
+      = link_to image_tag("icon.png", size: "32x32"), "/"
+      .navbar-text 本の星
     = render "form"
   .navbar-end
     a.navbar-item href="/help" 使い方
