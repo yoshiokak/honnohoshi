@@ -8,18 +8,31 @@
 .about__title {
   display: flex;
   margin-top: 10rem;
-  margin-right: 2.5rem;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  font-size: 5.5rem;
+  line-height: 1;
 }
 
 .about__text {
-  font-size: 100px;
+  font-family: serif;
+}
+
+.about__text span {
+  font-size: 0.925em;
+  margin: 0.0625em;
 }
 
 .about__icon {
-  width: 100px;
-  height: 100px;
-  margin-top: 2.2rem;
-  margin-right: 0.5rem;
+  width: 1.125em;
+  height: 1.125em;
+  margin-right: .1875em;
+  position: relative;
+  top: 0.05em;
+}
+
+.about__icon img {
+  transform: rotate(-20deg);
 }
 
 .about__description {
