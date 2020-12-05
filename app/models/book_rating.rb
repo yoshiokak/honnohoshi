@@ -5,6 +5,10 @@ class BookRating
     raise NotImplementedError
   end
 
+  def service_logo
+    raise NotImplementedError
+  end
+
   def book_exists?
     raise NotImplementedError
   end

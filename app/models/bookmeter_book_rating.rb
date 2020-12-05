@@ -9,6 +9,10 @@ class BookmeterBookRating < BookRating
     "読書メーター"
   end
 
+  def service_logo
+    "bookmeter-logo.png"
+  end
+
   def book_exists?
     !@book_path.nil?
   end

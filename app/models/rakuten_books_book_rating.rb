@@ -7,6 +7,10 @@ class RakutenBooksBookRating < BookRating
     "楽天ブックス"
   end
 
+  def service_logo
+    "rakutenbooks-logo.png"
+  end
+
   def book_exists?
     !@book.nil?
   end
