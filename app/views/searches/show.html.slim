@@ -6,3 +6,14 @@
     p 書籍が見つかりませんでした
 - elsif @book.exists?
   = render "search_result"
+
+.foot
+  .foot__disclaimer-link
+    = link_to "免責事項", disclaimer_path
+  .foot__copyright
+    .foot__copyright-mark
+      i.fa.fa-copyright
+    .foot__name
+      | kaitoyoshioka
+    .foot__year
+      = Date.today.year
