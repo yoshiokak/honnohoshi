@@ -1,9 +1,9 @@
 = form_with url: search_path, method: :get, local: true do |f|
   .search.field.has-addons
     .control
-      .search__input.input.is-small
-        = f.text_field :isbn, placeholder: "ISBN", required: true
+      .search__input.input
+        = f.text_field :isbn, placeholder: "ISBN(ハイフン無しでも可)", required: true
     .control
       .search__btn
-        = button_tag type: 'submit', name: nil, class: 'button is-light is-small' do
+        = button_tag type: 'submit', name: nil, class: 'button is-light' do
           i.fa.fa-search

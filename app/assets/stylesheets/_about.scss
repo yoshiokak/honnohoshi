@@ -8,26 +8,51 @@
 .about__title {
   display: flex;
   margin-top: 10rem;
-  margin-right: 2.5rem;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  font-size: 5.5rem;
+  line-height: 1;
 }
 
 .about__text {
-  font-size: 100px;
+  font-family: serif;
+}
+
+.about__text span {
+  font-size: 0.925em;
+  margin: 0.0625em;
 }
 
 .about__icon {
-  width: 100px;
-  height: 100px;
-  margin-top: 2.2rem;
-  margin-right: 0.5rem;
+  width: 1.125em;
+  height: 1.125em;
+  margin-right: .1875em;
+  position: relative;
+  top: 0.05em;
+}
+
+.about__icon img {
+  transform: rotate(-20deg);
 }
 
 .about__description {
   font-size: 19px;
   width: 550px;
+  text-align: center;
 }
 
-.about__help-link {
-  margin-left: 30rem;
-  font-size: 20px;
+.about__logo {
+  display: flex;
+}
+
+.about__logo img {
+  margin-right: 1rem;
+}
+
+.about__bookmeter-logo {
+  margin-top: 3rem;
+}
+
+.about__hongasuki-logo {
+  margin-top: 2.2rem;
 }

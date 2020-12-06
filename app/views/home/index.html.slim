@@ -1,19 +1,26 @@
 .main
   .about
-    .about__title
+    h1.about__title
       .about__icon
         = image_tag("icon.png")
       .about__text
-        h1 本の星
+        |本
+        span の
+        |星
     .about__description
-      p 本の星は書籍のISBNを入力することで、複数サービス(「楽天ブックス」、「読書メーター」、「本が好き！」)から書籍の評価を取得し、表示するサービスです。
-    .about__help-link
-      = link_to "使い方", help_path
+      | 複数のサービスでの書籍の星評価を一括で確認
+      ul.about__logo
+        li.about__amazon-logo = image_tag("amazon-logo.png", size: "128x128")
+        li.about__rakutenbooks-logo = image_tag("rakutenbooks-logo.png", size: "128x128")
+        li.about__bookmeter-logo = image_tag("bookmeter-logo.png", size: "128x128")
+        li.about__hongasuki-logo = image_tag("hongasuki-logo.png", size: "128x128")
+      | 複数サービスを見比べることで、偏りのない評価が確認できます。使い方は簡単、ISBNを入力するだけ！！
+      = link_to "ISBNとは？", "http://pro.bookoffonline.co.jp/book-enjoy/books-trivia/20160408-isbn-mean.html", target: :_blank, rel: "noopener noreferrer"
 
   = render "form"
 
   .form-helper
-    = link_to "ISBNとは", "https://isbn.jpo.or.jp/index.php/fix__about/fix__about_2/"
+    = link_to "『吾輩は猫である』の評価を見る", "/search?isbn=978-4101010014"
 
 .foot
   .foot__disclaimer-link

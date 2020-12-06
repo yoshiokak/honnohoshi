@@ -4,6 +4,9 @@
 
 .book-ratings__book-rating {
   display: flex;
+  position: relative;
+  padding-top: 3rem;
+  height: 160px;
 }
 
 .book-ratings__star-rating {
@@ -19,27 +22,50 @@
   left: 0;
   overflow: hidden;
   color: #ffcc33;
+  padding-top: 2rem;
 }
 
 .book-ratings__star-rating--back {
   color: #ccc;
+  padding-top: 2rem;
 }
 
 .book-ratings__average-rating {
+  display: inline-block;
+  width: 70px;
   margin-top: 1em;
   margin-left: 1.3em;
   font-weight: bold;
   font-size: 25px;
+  padding-top: 2rem;
 }
 
 .book-ratings__review-count {
+  display: inline-block;
+  width: 230px;
   margin-top: 1em;
-  margin-left: 1.3em;
+  margin-left: 1rem;
   font-size: 25px;
+  color: #999999;
+  padding-top: 2rem;
 }
 
 .book-ratings__url {
   margin-top: 1em;
   margin-left: 1.3em;
   font-size: 25px;
+  padding-top: 2rem;
+}
+
+.book-ratings__logo {
+  position: absolute;
+  top: 0px;
+}
+
+.book-ratings__logo-2 {
+  padding-top: 3rem;
+}
+
+.book-ratings__logo-3 {
+  padding-top: 2rem;
 }

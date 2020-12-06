@@ -1,3 +1,6 @@
+$navbar-item-img-max-height: 53px;
+$navbar-height: 4rem;
+
 @import "ress";
 @import "bulma";
 @import "base";
@@ -9,6 +12,6 @@
 @import "about";
 @import "form-helper";
 @import "main";
-@import "help";
 @import "disclaimer";
 @import "foot";
+@import "navbar";

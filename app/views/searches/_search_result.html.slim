@@ -1,3 +1,5 @@
+= content_for(:html_title) { "『#{@book.title}』の複数サービスでの評価一覧 | 本の星" }
+
 .search-result
   = render "book_info"
   = render_async book_ratings_path(isbn13: @book.isbn13) do

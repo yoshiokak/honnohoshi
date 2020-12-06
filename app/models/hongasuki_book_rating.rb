@@ -9,6 +9,10 @@ class HongasukiBookRating < BookRating
     "本が好き！"
   end
 
+  def service_logo
+    "hongasuki-logo.png"
+  end
+
   def book_exists?
     !@book_path.nil?
   end

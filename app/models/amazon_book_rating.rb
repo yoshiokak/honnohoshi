@@ -7,6 +7,10 @@ class AmazonBookRating < BookRating
     "Amazon"
   end
 
+  def service_logo
+    "amazon-logo.png"
+  end
+
   def book_exists?
     !@book.nil?
   end
