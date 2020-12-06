@@ -31,6 +31,8 @@
 }
 
 .book-ratings__average-rating {
+  display: inline-block;
+  width: 70px;
   margin-top: 1em;
   margin-left: 1.3em;
   font-weight: bold;
@@ -39,6 +41,8 @@
 }
 
 .book-ratings__review-count {
+  display: inline-block;
+  width: 230px;
   margin-top: 1em;
   margin-left: 1rem;
   font-size: 25px;
