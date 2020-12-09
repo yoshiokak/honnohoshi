@@ -4,7 +4,7 @@ class SearchesController < ApplicationController
   def show
     return unless ISBN.valid?(params[:isbn])
 
-    @isbn = params[:isbn]
+    @isbn = ISBN.thirteen(params[:isbn])
     @book = Book.new.search(@isbn)
   end
 end
