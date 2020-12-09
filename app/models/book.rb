@@ -22,6 +22,11 @@ class Book
       end
     end
 
+    if @cover_image.blank?
+      book = RakutenWebService::Books::Book.search(isbn: isbn).first
+      @cover_image = book.large_image_url
+    end
+
     self
   end
 end
