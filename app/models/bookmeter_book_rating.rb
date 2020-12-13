@@ -18,18 +18,18 @@ class BookmeterBookRating < BookRating
   end
 
   def search(isbn)
-    @book_path = parse_book_path(isbn)
+    @book_path = extract_book_path(isbn)
 
     if book_exists?
       @url = "https://bookmeter.com#{@book_path}"
       @doc = Nokogiri::HTML.parse(URI.open(@url))
-      @average_rating = parse_average_rating
-      @review_count = parse_review_count
+      @average_rating = extract_average_rating
+      @review_count = extract_review_count
     end
   end
 
   private
-    def parse_book_path(isbn)
+    def extract_book_path(isbn)
       search_url = "https://bookmeter.com/search?keyword=#{isbn}"
 
       response = Net::HTTP.get(URI.parse(search_url))
@@ -42,7 +42,7 @@ class BookmeterBookRating < BookRating
       end
     end
 
-    def parse_average_rating
+    def extract_average_rating
       if @doc.at_css(".supplement__value.average").nil?
         "評価なし"
       else
@@ -50,7 +50,7 @@ class BookmeterBookRating < BookRating
       end
     end
 
-    def parse_review_count
+    def extract_review_count
       if @doc.at_css(".supplement__value.count").nil?
         "0"
       else

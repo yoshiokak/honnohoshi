@@ -18,18 +18,18 @@ class HongasukiBookRating < BookRating
   end
 
   def search(isbn)
-    @book_path = parse_book_path(isbn)
+    @book_path = extract_book_path(isbn)
 
     if book_exists?
       @url = "https://www.honzuki.jp#{@book_path}"
       @doc = Nokogiri::HTML.parse(URI.open(@url, ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE))
-      @average_rating = parse_average_rating
-      @review_count = parse_review_count
+      @average_rating = extract_average_rating
+      @review_count = extract_review_count
     end
   end
 
   private
-    def parse_book_path(isbn)
+    def extract_book_path(isbn)
       search_url = "https://www.honzuki.jp/book/book_search/index.html?search_in=honzuki&isbn=#{isbn}"
 
       doc = Nokogiri::HTML.parse(URI.open(search_url, ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE))
@@ -40,7 +40,7 @@ class HongasukiBookRating < BookRating
       end
     end
 
-    def parse_average_rating
+    def extract_average_rating
       if @doc.at_css("b[itemprop='average']").text == "0"
         "評価なし"
       else
@@ -48,7 +48,7 @@ class HongasukiBookRating < BookRating
       end
     end
 
-    def parse_review_count
+    def extract_review_count
       @doc.at_css("b[itemprop='votes']").text
     end
 end
