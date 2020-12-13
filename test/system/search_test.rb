@@ -94,5 +94,5 @@ class SearchTest < ApplicationSystemTestCase
     find(".search__btn").click
 
     assert_text("書籍が見つかりませんでした")
-  end 
+  end
 end
