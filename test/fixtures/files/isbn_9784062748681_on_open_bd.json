@@ -1,0 +1,261 @@
+[
+  {
+   "onix": {
+    "RecordReference": "9784062748681",
+    "NotificationType": "03",
+    "ProductIdentifier": {
+     "ProductIDType": "15",
+     "IDValue": "9784062748681"
+    },
+    "DescriptiveDetail": {
+     "ProductComposition": "00",
+     "ProductForm": "BA",
+     "ProductFormDetail": "B111",
+     "Collection": {
+      "CollectionType": "10",
+      "TitleDetail": {
+       "TitleType": "01",
+       "TitleElement": [
+        {
+         "TitleElementLevel": "02",
+         "TitleText": {
+          "collationkey": "コウダンシャブンコ",
+          "content": "講談社文庫"
+         }
+        }
+       ]
+      }
+     },
+     "TitleDetail": {
+      "TitleType": "01",
+      "TitleElement": {
+       "TitleElementLevel": "01",
+       "TitleText": {
+        "collationkey": "ノルウェイノモリジョウ",
+        "content": "ノルウェイの森（上）"
+       }
+      }
+     },
+     "Contributor": [
+      {
+       "SequenceNumber": "1",
+       "ContributorRole": [
+        "A01"
+       ],
+       "PersonName": {
+        "collationkey": "ムラカミ ハルキ",
+        "content": "村上 春樹"
+       }
+      }
+     ],
+     "Language": [
+      {
+       "LanguageRole": "01",
+       "LanguageCode": "jpn"
+      }
+     ],
+     "Extent": [
+      {
+       "ExtentType": "11",
+       "ExtentValue": "304",
+       "ExtentUnit": "03"
+      }
+     ],
+     "Subject": [
+      {
+       "MainSubject": "",
+       "SubjectSchemeIdentifier": "78",
+       "SubjectCode": "0193"
+      },
+      {
+       "SubjectSchemeIdentifier": "20",
+       "SubjectHeadingText": "文芸一般;;;;;;;;;;;;;;;;;;;"
+      }
+     ],
+     "Audience": [
+      {
+       "AudienceCodeType": "22",
+       "AudienceCodeValue": "00"
+      }
+     ]
+    },
+    "CollateralDetail": {
+     "TextContent": [
+      {
+       "TextType": "02",
+       "ContentAudience": "00",
+       "Text": ""
+      },
+      {
+       "TextType": "03",
+       "ContentAudience": "00",
+       "Text": "限りない喪失と再生を描く究極の恋愛小説！\n\n暗く重たい雨雲をくぐり抜け、飛行機がハンブルク空港に着陸すると、天井のスピーカーから小さな音でビートルズの『ノルウェイの森』が流れ出した。僕は1969年、もうすぐ20歳になろうとする秋のできごとを思い出し、激しく混乱し、動揺していた。限りない喪失と再生を描き新境地を拓いた長編小説。"
+      },
+      {
+       "TextType": "04",
+       "ContentAudience": "00",
+       "Text": "第一章\n第二章\n第三章\n第四章\n第五章\n第六章"
+      }
+     ]
+    },
+    "PublishingDetail": {
+     "Imprint": {
+      "ImprintIdentifier": [
+       {
+        "ImprintIDType": "19",
+        "IDValue": "06"
+       },
+       {
+        "ImprintIDType": "24",
+        "IDValue": "2253"
+       }
+      ],
+      "ImprintName": "講談社"
+     },
+     "PublishingDate": [
+      {
+       "PublishingDateRole": "01",
+       "Date": "20040914"
+      }
+     ]
+    },
+    "ProductSupply": {
+     "SupplyDetail": {
+      "ProductAvailability": "99",
+      "Price": [
+       {
+        "PriceType": "03",
+        "PriceAmount": "620",
+        "CurrencyCode": "JPY"
+       }
+      ]
+     }
+    }
+   },
+   "hanmoto": {
+    "datemodified": "2019-07-01 10:13:53",
+    "datecreated": "2015-08-20 11:38:04",
+    "reviews": [
+     {
+      "post_user": "genkina",
+      "reviewer": "杉本和行（公正取引委員会委員長）",
+      "source_id": 23,
+      "kubun_id": 1,
+      "source": "日本経済新聞",
+      "choyukan": "",
+      "han": "",
+      "link": "",
+      "appearance": "2015-01-04",
+      "gou": ""
+     },
+     {
+      "post_user": "genkina",
+      "reviewer": "綿矢りさ（作家）",
+      "source_id": 19,
+      "kubun_id": 1,
+      "source": "東京新聞／中日新聞",
+      "choyukan": "",
+      "han": "",
+      "link": "",
+      "appearance": "2016-01-03",
+      "gou": ""
+     },
+     {
+      "post_user": "genkina",
+      "reviewer": "服部文祥（登山家、作家）",
+      "source_id": 20,
+      "kubun_id": 1,
+      "source": "読売新聞",
+      "choyukan": "朝刊",
+      "han": "",
+      "link": "",
+      "appearance": "2018-11-11",
+      "gou": ""
+     },
+     {
+      "post_user": "genkina",
+      "reviewer": "唯川恵（作家）",
+      "source_id": 23,
+      "kubun_id": 1,
+      "source": "日本経済新聞",
+      "choyukan": "朝刊",
+      "han": "",
+      "link": "",
+      "appearance": "2019-12-14",
+      "gou": ""
+     },
+     {
+      "post_user": "genkina",
+      "reviewer": "津谷正明（ブリヂストン会長兼CEO）",
+      "source_id": 23,
+      "kubun_id": 1,
+      "source": "日本経済新聞",
+      "choyukan": "朝刊",
+      "han": "",
+      "link": "",
+      "appearance": "2020-02-15",
+      "gou": ""
+     },
+     {
+      "post_user": "genkina",
+      "reviewer": "重里徹也（聖徳大学教授、文芸評論家）",
+      "source_id": 19,
+      "kubun_id": 1,
+      "source": "東京新聞／中日新聞",
+      "choyukan": "朝刊",
+      "han": "",
+      "link": "",
+      "appearance": "2020-05-16",
+      "gou": ""
+     },
+     {
+      "post_user": "genkina",
+      "reviewer": "カニエ・ナハ（詩人、装幀家）",
+      "source_id": 19,
+      "kubun_id": 1,
+      "source": "東京新聞／中日新聞",
+      "choyukan": "朝刊",
+      "han": "",
+      "link": "",
+      "appearance": "2020-05-30",
+      "gou": ""
+     },
+     {
+      "post_user": "genkina",
+      "reviewer": "",
+      "source_id": 18,
+      "kubun_id": 1,
+      "source": "朝日新聞",
+      "choyukan": "朝刊",
+      "han": "",
+      "link": "",
+      "appearance": "2020-06-27",
+      "gou": ""
+     },
+     {
+      "post_user": "genkina",
+      "reviewer": "",
+      "source_id": 7,
+      "kubun_id": 1,
+      "source": "産經新聞",
+      "choyukan": "朝刊",
+      "han": "",
+      "link": "",
+      "appearance": "2020-09-20",
+      "gou": ""
+     }
+    ],
+    "dateshuppan": "2004-09"
+   },
+   "summary": {
+    "isbn": "9784062748681",
+    "title": "ノルウェイの森（上）",
+    "volume": "",
+    "series": "",
+    "publisher": "講談社",
+    "pubdate": "20040914",
+    "cover": "",
+    "author": "村上春樹／著"
+   }
+  }
+ ]

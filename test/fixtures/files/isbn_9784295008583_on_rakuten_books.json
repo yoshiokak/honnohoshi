@@ -1,0 +1,43 @@
+{
+  "Items": [
+    {
+      "Item": {
+        "hardware": "",
+        "limitedFlag": 0,
+        "author": "クリス・リチャードソン/長尾高弘",
+        "title": "マイクロサービスパターン",
+        "listPrice": 0,
+        "itemCaption": "パターンによるシステム開発とその実装をＪａｖａによる豊富なサンプルで解説。マイクロサービスの事案を成功させるための実践的ノウハウを集めた必読の一冊。",
+        "publisherName": "インプレス",
+        "isbn": "9784295008583",
+        "largeImageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/8583/9784295008583.jpg?_ex=200x200",
+        "jan": "",
+        "mediumImageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/8583/9784295008583.jpg?_ex=120x120",
+        "availability": "1",
+        "os": "",
+        "postageFlag": 2,
+        "salesDate": "2020年03月",
+        "smallImageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/8583/9784295008583.jpg?_ex=64x64",
+        "label": "",
+        "discountPrice": 0,
+        "itemPrice": 5280,
+        "booksGenreId": "001005005011/001005017",
+        "affiliateUrl": "",
+        "reviewCount": 2,
+        "reviewAverage": "4.0",
+        "artistName": "",
+        "discountRate": 0,
+        "chirayomiUrl": "",
+        "itemUrl": "https://books.rakuten.co.jp/rb/16239274/"
+      }
+    }
+  ],
+  "pageCount": 1,
+  "hits": 1,
+  "last": 1,
+  "count": 1,
+  "page": 1,
+  "carrier": 0,
+  "GenreInformation": [],
+  "first": 1
+}
