@@ -84,15 +84,4 @@ class SearchTest < ApplicationSystemTestCase
 
     assert_text("書籍が見つかりませんでした")
   end
-
-  test "book not in OpenBD and RakutenBooks" do
-    stub_book_not_in_open_bd_and_rakuten_books
-
-    visit root_path
-
-    fill_in "isbn", with: "9784004200369"
-    find(".search__btn").click
-
-    assert_text("書籍が見つかりませんでした")
-  end
 end
