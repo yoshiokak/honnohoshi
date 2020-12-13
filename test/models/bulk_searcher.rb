@@ -2,7 +2,7 @@
 
 require "test_helper"
 
-class BulkSearcher < ActiveSupport::TestCase
+class BulkSearcherTest < ActiveSupport::TestCase
   setup do
     stub_amazon
     stub_rakuten_books
@@ -15,9 +15,9 @@ class BulkSearcher < ActiveSupport::TestCase
   test ".search" do
     services = BulkSearcher.search("9784101010014")
 
-    assert services[0].kind_of?(Amazon)
-    assert services[1].kind_of?(RakutenBooks)
-    assert services[2].kind_of?(Bookmeter)
-    assert services[3].kind_of?(Hongasuki)
+    assert services[0].kind_of?(AmazonBookRating)
+    assert services[1].kind_of?(RakutenBooksBookRating)
+    assert services[2].kind_of?(BookmeterBookRating)
+    assert services[3].kind_of?(HongasukiBookRating)
   end
 end

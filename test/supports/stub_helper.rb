@@ -120,4 +120,91 @@ module StubHelper
           headers: { "Content-Type" =>  "application/json" }
         )
   end
+
+  def stub_no_image_of_book_in_open_bd
+    stub_request(:get, "https://api.openbd.jp/v1/get?isbn=9784062748681").
+      with(
+        headers: {
+              "Accept"=>"*/*",
+              "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+              "User-Agent"=>"Faraday v1.0.1"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/isbn_9784062748681_on_open_bd.json")),
+          headers: { "Content-Type" =>  "application/json" }
+        )
+
+    stub_request(:get, "https://app.rakuten.co.jp/services/api/BooksTotal/Search/20170404?format=json&isbnjan=9784062748681&applicationId=#{ENV["RAKUTEN_APP_ID"]}").
+      with(
+        headers: {
+          "Accept"=>"*/*",
+          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/isbn_9784062748681_on_rakuten_books.json")),
+          headers: { "Content-Type" =>  "application/json" }
+        )
+  end
+
+  def stub_book_not_in_open_bd
+    stub_request(:get, "https://api.openbd.jp/v1/get?isbn=9784295008583").
+      with(
+        headers: {
+              "Accept"=>"*/*",
+              "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+              "User-Agent"=>"Faraday v1.0.1"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/isbn_9784295008583_on_open_bd.json")),
+          headers: { "Content-Type" =>  "application/json" }
+        )
+
+    stub_request(:get, "https://app.rakuten.co.jp/services/api/BooksTotal/Search/20170404?format=json&isbnjan=9784295008583&applicationId=#{ENV["RAKUTEN_APP_ID"]}").
+      with(
+        headers: {
+          "Accept"=>"*/*",
+          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/isbn_9784295008583_on_rakuten_books.json")),
+          headers: { "Content-Type" =>  "application/json" }
+        )
+  end
+
+  def stub_book_not_in_open_bd_and_rakuten_books
+    stub_request(:get, "https://api.openbd.jp/v1/get?isbn=9784004200369").
+      with(
+        headers: {
+              "Accept"=>"*/*",
+              "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+              "User-Agent"=>"Faraday v1.0.1"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/isbn_9784004200369_on_open_bd.json")),
+          headers: { "Content-Type" =>  "application/json" }
+        )
+
+    stub_request(:get, "https://app.rakuten.co.jp/services/api/BooksTotal/Search/20170404?format=json&isbnjan=9784004200369&applicationId=#{ENV["RAKUTEN_APP_ID"]}").
+      with(
+        headers: {
+          "Accept"=>"*/*",
+          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/isbn_9784004200369_on_rakuten_books.json")),
+          headers: { "Content-Type" =>  "application/json" }
+        )
+  end
 end

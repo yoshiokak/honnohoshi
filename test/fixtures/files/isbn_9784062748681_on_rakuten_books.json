@@ -1,0 +1,43 @@
+{
+  "Items": [
+    {
+      "Item": {
+        "hardware": "",
+        "limitedFlag": 0,
+        "author": "村上 春樹",
+        "title": "ノルウェイの森（上）",
+        "listPrice": 0,
+        "itemCaption": "暗く重たい雨雲をくぐり抜け、飛行機がハンブルク空港に着陸すると、天井のスピーカーから小さな音でビートルズの『ノルウェイの森』が流れ出した。僕は一九六九年、もうすぐ二十歳になろうとする秋のできごとを思い出し、激しく混乱し、動揺していた。限りない喪失と再生を描き新境地を拓いた長編小説。",
+        "publisherName": "講談社",
+        "isbn": "9784062748681",
+        "largeImageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/8681/9784062748681.jpg?_ex=200x200",
+        "jan": "",
+        "mediumImageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/8681/9784062748681.jpg?_ex=120x120",
+        "availability": "1",
+        "os": "",
+        "postageFlag": 2,
+        "salesDate": "2004年09月",
+        "smallImageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/8681/9784062748681.jpg?_ex=64x64",
+        "label": "",
+        "discountPrice": 0,
+        "itemPrice": 682,
+        "booksGenreId": "001004008007/001019001",
+        "affiliateUrl": "",
+        "reviewCount": 1730,
+        "reviewAverage": "3.91",
+        "artistName": "",
+        "discountRate": 0,
+        "chirayomiUrl": "",
+        "itemUrl": "https://books.rakuten.co.jp/rb/1709070/"
+      }
+    }
+  ],
+  "pageCount": 1,
+  "hits": 1,
+  "last": 1,
+  "count": 1,
+  "page": 1,
+  "carrier": 0,
+  "GenreInformation": [],
+  "first": 1
+}

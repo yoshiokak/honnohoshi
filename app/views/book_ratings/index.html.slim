@@ -16,4 +16,4 @@
         .book-ratings__url
           = link_to "詳細 >", book_rating.url, target: :_blank, rel: "noopener noreferrer"
     - else
-      p #{book_rating.service_name}には書籍が存在しませんでした
+      p.book-ratings-does-not-exist #{book_rating.service_name}には書籍が存在しませんでした

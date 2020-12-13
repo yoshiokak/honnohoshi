@@ -2,9 +2,9 @@
 
 - if !ISBN.valid?(@isbn)
     p 有効なISBN-13または有効なISBN-10を入力してください
-- elsif !@book.exists?
+- elsif @book.nil?
     p 書籍が見つかりませんでした
-- elsif @book.exists?
+- elsif !@book.nil?
   = render "search_result"
 
 .foot
