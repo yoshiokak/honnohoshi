@@ -24,4 +24,12 @@ class AmazonBookRatingTest < ActiveSupport::TestCase
     assert_equal("3.9", @amazon_book_rating.average_rating)
     assert_equal("762", @amazon_book_rating.review_count)
   end
+
+  test "exception handling" do
+    stub_amazon_timeout
+
+    assert_not @amazon_book_rating.error
+    @amazon_book_rating.search("9784101010014")
+    assert @amazon_book_rating.error
+  end
 end

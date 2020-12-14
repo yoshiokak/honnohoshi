@@ -129,6 +129,10 @@ module StubHelper
         )
   end
 
+  def stub_amazon_timeout
+    stub_request(:get, "https://amazon-price1.p.rapidapi.com/search?keywords=9784101010014&marketplace=JP").to_raise(Net::OpenTimeout)
+  end
+
   def stub_no_image_of_book_in_open_bd
     stub_request(:get, "https://api.openbd.jp/v1/get?isbn=9784062748681").
       with(
