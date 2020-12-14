@@ -88,6 +88,33 @@ module StubHelper
     stub_request(:get, "https://bookmeter.com/books/548397").to_raise(Net::OpenTimeout)
   end
 
+  def stub_book_rating_is_not_available_in_bookmeter
+    stub_request(:get, "https://bookmeter.com/search?keyword=9784326000258").
+      with(
+        headers: {
+          "Accept"=>"*/*",
+          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/bookmeter_search_results_by_isbn_9784326000258.json")),
+          headers: { "Content-Type" =>  "text/html" }
+        )
+    stub_request(:get, "https://bookmeter.com/books/677132").
+      with(
+        headers: {
+          "Accept"=>"*/*",
+          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/bookmeter_isbn_9784326000258.html")),
+          headers: { "Content-Type" =>  "text/html" }
+            )
+  end
+
   def stub_hongasuki_search_results_by_isbn
     stub_request(:get, "https://www.honzuki.jp/book/book_search/index.html?search_in=honzuki&isbn=9784101010014").
       with(

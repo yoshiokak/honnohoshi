@@ -41,4 +41,12 @@ class BookmeterBookRatingTest < ActiveSupport::TestCase
     assert_equal("取得エラー", @bookmeter_book_rating.average_rating)
     assert_equal("取得エラー", @bookmeter_book_rating.review_count)
   end
+
+  test "book rating is not available in Bookmeter" do
+    stub_book_rating_is_not_available_in_bookmeter
+
+    @bookmeter_book_rating.search("9784326000258")
+    assert_equal("評価なし", @bookmeter_book_rating.average_rating)
+    assert_equal("0", @bookmeter_book_rating.review_count)
+  end
 end
