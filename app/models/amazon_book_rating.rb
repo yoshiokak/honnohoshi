@@ -19,7 +19,8 @@ class AmazonBookRating < BookRating
     begin
       @book = RakutenRapidAPI::AmazonPrice.search(isbn).first
     rescue
-      return @error = true
+      @error = true
+      return @book = nil
     end
 
     if book_exists?

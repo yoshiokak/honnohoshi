@@ -19,7 +19,8 @@ class RakutenBooksBookRating < BookRating
     begin
       @book = RakutenWebService::Books::Book.search(isbn: isbn).first
     rescue
-      return @error = true
+      @error = true
+      return @book = nil
     end
 
     if book_exists?
