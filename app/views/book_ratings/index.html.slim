@@ -1,19 +1,22 @@
 .book-ratings
   - @book_ratings.each_with_index do |book_rating, index|
-    - if book_rating.book_exists?
-      .book-ratings__book-rating
-        .book-ratings__logo
-            = image_tag(book_rating.service_logo, class: "book-ratings__logo-#{index}")
-        .book-ratings__star-rating
-          .book-ratings__star-rating--front style="width: #{20 * book_rating.average_rating.to_f}%"
-            | ★★★★★
-          .book-ratings__star-rating--back
-            | ★★★★★
-        .book-ratings__average-rating
-          = book_rating.average_rating
-        .book-ratings__review-count
-          = "(レビュー#{book_rating.review_count}件)"
-        .book-ratings__url
-          = link_to "詳細 >", book_rating.url, target: :_blank, rel: "noopener noreferrer"
+    - if book_rating.error
+      p.book-ratings-error #{book_rating.service_name}から書籍の評価を取得するのに失敗しました
     - else
-      p.book-ratings-does-not-exist #{book_rating.service_name}には書籍が存在しませんでした
+      - if book_rating.book_exists?
+        .book-ratings__book-rating
+          .book-ratings__logo
+              = image_tag(book_rating.service_logo, class: "book-ratings__logo-#{index}")
+          .book-ratings__star-rating
+            .book-ratings__star-rating--front style="width: #{20 * book_rating.average_rating.to_f}%"
+              | ★★★★★
+            .book-ratings__star-rating--back
+              | ★★★★★
+          .book-ratings__average-rating
+            = book_rating.average_rating
+          .book-ratings__review-count
+            = "(レビュー#{book_rating.review_count}件)"
+          .book-ratings__url
+            = link_to "詳細 >", book_rating.url, target: :_blank, rel: "noopener noreferrer"
+      - else
+        p.book-ratings-does-not-exist #{book_rating.service_name}には書籍が存在しませんでした
