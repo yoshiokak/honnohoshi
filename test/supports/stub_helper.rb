@@ -81,7 +81,11 @@ module StubHelper
   end
 
   def stub_bookmeter_search_results_by_isbn_timeout
-    stub_request(:get, "https://bookmeter.com/search?keyword=9784101010014").to_timeout
+    stub_request(:get, "https://bookmeter.com/search?keyword=9784101010014").to_raise(Net::OpenTimeout)
+  end
+
+  def stub_bookmeter_timeout
+    stub_request(:get, "https://bookmeter.com/books/548397").to_raise(Net::OpenTimeout)
   end
 
   def stub_hongasuki_search_results_by_isbn
