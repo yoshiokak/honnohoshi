@@ -74,4 +74,12 @@ class BookSearcherTest < ActiveSupport::TestCase
     assert_equal("夏目漱石／著", book.author)
     assert_equal("9784101010014", book.isbn13)
   end
+
+  test "no book image in OpenBD and RakutenBooks" do
+    stub_no_book_image_in_open_bd_and_rakuten_books
+
+    book = BookSearcher.search("9784423196267")
+
+    assert_equal("/assets/not_available.png", book.cover_image)
+  end
 end

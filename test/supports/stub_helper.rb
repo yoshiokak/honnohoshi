@@ -285,4 +285,33 @@ module StubHelper
           headers: { "Content-Type" =>  "application/json" }
         )
   end
+
+  def stub_no_book_image_in_open_bd_and_rakuten_books
+    stub_request(:get, "https://api.openbd.jp/v1/get?isbn=9784423196267").
+      with(
+        headers: {
+              "Accept"=>"*/*",
+              "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+              "User-Agent"=>"Faraday v1.0.1"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/isbn_9784423196267_on_open_bd.json")),
+          headers: { "Content-Type" =>  "application/json" }
+        )
+
+    stub_request(:get, "https://app.rakuten.co.jp/services/api/BooksTotal/Search/20170404?format=json&isbnjan=9784423196267&applicationId=#{ENV["RAKUTEN_APP_ID"]}").
+      with(
+        headers: {
+          "Accept"=>"*/*",
+          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/isbn_9784423196267_on_rakuten_books.json")),
+          headers: { "Content-Type" =>  "application/json" }
+        )
+  end
 end
