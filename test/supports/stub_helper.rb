@@ -118,6 +118,14 @@ module StubHelper
         )
   end
 
+  def stub_hongasuki_search_results_by_isbn_timeout
+    stub_request(:get, "https://www.honzuki.jp/book/book_search/index.html?search_in=honzuki&isbn=9784101010014").to_raise(Net::OpenTimeout)
+  end
+
+  def stub_hongasuki_timeout
+    stub_request(:get, "https://www.honzuki.jp/book/9931/").to_raise(Net::OpenTimeout)
+  end
+
   def stub_amazon
     stub_request(:get, "https://amazon-price1.p.rapidapi.com/search?keywords=9784101010014&marketplace=JP").
       with(
