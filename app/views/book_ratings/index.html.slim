@@ -15,7 +15,7 @@
           .book-ratings__average-rating
             = book_rating.average_rating
           .book-ratings__review-count
-            = "(レビュー#{book_rating.review_count}件)"
+            = book_rating.review_count == "取得エラー" ? "取得エラー" : "(レビュー#{book_rating.review_count}件)"
           .book-ratings__url
             = link_to "詳細 >", book_rating.url, target: :_blank, rel: "noopener noreferrer"
       - else
