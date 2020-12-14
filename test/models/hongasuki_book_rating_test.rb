@@ -43,7 +43,7 @@ class HongasukiBookRatingTest < ActiveSupport::TestCase
   end
 
   test "book rating is not available in Hongasuki" do
-    stub_book_rating_is_not_available_in_Hongasuki
+    stub_book_rating_is_not_available_in_hongasuki
 
     @hongasuki_book_rating.search("9784781912295")
     assert_equal("評価なし", @hongasuki_book_rating.average_rating)
