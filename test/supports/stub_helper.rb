@@ -126,6 +126,33 @@ module StubHelper
     stub_request(:get, "https://www.honzuki.jp/book/9931/").to_raise(Net::OpenTimeout)
   end
 
+  def stub_book_rating_is_not_available_in_Hongasuki
+    stub_request(:get, "https://www.honzuki.jp/book/book_search/index.html?search_in=honzuki&isbn=9784781912295").
+      with(
+        headers: {
+          "Accept"=>"*/*",
+          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/hongasuki_search_results_by_isbn_9784781912295.html")),
+          headers: { "Content-Type" =>  "text/html" }
+        )
+    stub_request(:get, "https://www.honzuki.jp/book/45397/").
+      with(
+        headers: {
+          "Accept"=>"*/*",
+          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/hongasuki_isbn_9784781912295.html")),
+          headers: { "Content-Type" =>  "text/html" }
+            )
+  end
+
   def stub_amazon
     stub_request(:get, "https://amazon-price1.p.rapidapi.com/search?keywords=9784101010014&marketplace=JP").
       with(
