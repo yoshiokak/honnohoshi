@@ -153,7 +153,7 @@ module StubHelper
     stub_request(:get, "https://www.honzuki.jp/book/9931/").to_raise(Net::OpenTimeout)
   end
 
-  def stub_book_rating_is_not_available_in_Hongasuki
+  def stub_book_rating_is_not_available_in_hongasuki
     stub_request(:get, "https://www.honzuki.jp/book/book_search/index.html?search_in=honzuki&isbn=9784781912295").
       with(
         headers: {
