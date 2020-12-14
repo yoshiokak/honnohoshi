@@ -1,0 +1,34 @@
+{
+  "metadata": {
+      "offset": 0,
+      "limit": 1,
+      "count": 1
+  },
+  "resources": [
+      {
+          "contents": {
+              "book": {
+                  "id": 677132,
+                  "path": "/books/677132",
+                  "amazon_urls": {
+                      "outline": "https://www.amazon.co.jp/exec/obidos/ASIN/product-description/4326000252/ref=nosim?#productDescription",
+                      "registration": "https://www.amazon.co.jp/dp/4326000252",
+                      "wish_book": "https://www.amazon.co.jp/dp/4326000252"
+                  },
+                  "title": "データベースの設計",
+                  "image_url": "https://m.media-amazon.com/images/I/415E65F7ZNL._SL500_.jpg",
+                  "registration_count": 1,
+                  "page": 381,
+                  "original": false,
+                  "is_advertisable": true,
+                  "author": {
+                      "name": "トビー・J. ティオリー",
+                      "path": "/search?author=%E3%83%88%E3%83%93%E3%83%BC%E3%83%BBJ.+%E3%83%86%E3%82%A3%E3%82%AA%E3%83%AA%E3%83%BC"
+                  }
+              }
+          },
+          "status": "",
+          "status_text": ""
+      }
+  ]
+}

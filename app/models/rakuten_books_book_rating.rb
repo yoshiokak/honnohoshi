@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RakutenBooksBookRating < BookRating
-  attr_reader :average_rating, :review_count, :url
+  attr_reader :average_rating, :review_count, :url, :error
 
   def service_name
     "楽天ブックス"
@@ -16,7 +16,12 @@ class RakutenBooksBookRating < BookRating
   end
 
   def search(isbn)
-    @book = RakutenWebService::Books::Book.search(isbn: isbn).first
+    begin
+      @book = RakutenWebService::Books::Book.search(isbn: isbn).first
+    rescue
+      @error = true
+      return @book = nil
+    end
 
     if book_exists?
       @url = @book.affiliate_url

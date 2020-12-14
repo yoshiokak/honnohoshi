@@ -8,6 +8,9 @@ module RakutenRapidAPI
       http = Net::HTTP.new(url.host, url.port)
       http.use_ssl = true
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      http.open_timeout = 15
+      http.read_timeout = 15
+      http.write_timeout = 15
 
       request = Net::HTTP::Get.new(url)
       request["x-rapidapi-host"] = "amazon-price1.p.rapidapi.com"

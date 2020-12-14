@@ -1,0 +1,151 @@
+[
+  {
+   "onix": {
+    "RecordReference": "9784423196267",
+    "NotificationType": "03",
+    "ProductIdentifier": {
+     "ProductIDType": "15",
+     "IDValue": "9784423196267"
+    },
+    "DescriptiveDetail": {
+     "ProductComposition": "00",
+     "ProductForm": "BZ",
+     "Measure": [
+      {
+       "MeasureType": "01",
+       "Measurement": "220",
+       "MeasureUnitCode": "mm"
+      },
+      {
+       "MeasureType": "02",
+       "Measurement": "0",
+       "MeasureUnitCode": "mm"
+      }
+     ],
+     "TitleDetail": {
+      "TitleType": "01",
+      "TitleElement": {
+       "TitleElementLevel": "01",
+       "TitleText": {
+        "collationkey": "ハイデッガー ゼンシュウ",
+        "content": "ハイデッガー全集 第2巻(第1部門 既刊著作 1910-1976)"
+       },
+       "Subtitle": {
+        "content": "有と時"
+       }
+      }
+     },
+     "Contributor": [
+      {
+       "SequenceNumber": "1",
+       "ContributorRole": [
+        "A01"
+       ],
+       "PersonName": {
+        "content": "Buchner, Hartmut"
+       }
+      },
+      {
+       "SequenceNumber": "2",
+       "ContributorRole": [
+        "A01"
+       ],
+       "PersonName": {
+        "content": "Heidegger, Martin"
+       }
+      },
+      {
+       "SequenceNumber": "3",
+       "ContributorRole": [
+        "A01"
+       ],
+       "PersonName": {
+        "content": "辻村 公一"
+       }
+      },
+      {
+       "SequenceNumber": "4",
+       "ContributorRole": [
+        "B06"
+       ],
+       "PersonName": {
+        "content": "ブッナー ハルトムート"
+       }
+      },
+      {
+       "SequenceNumber": "5",
+       "ContributorRole": [
+        "A01"
+       ],
+       "PersonName": {
+        "content": "ハイデッガー M."
+       }
+      }
+     ],
+     "Language": [
+      {
+       "LanguageRole": "01",
+       "LanguageCode": "jpn",
+       "CountryCode": "JP"
+      }
+     ],
+     "Extent": [
+      {
+       "ExtentType": "11",
+       "ExtentValue": "651, 36",
+       "ExtentUnit": "03"
+      }
+     ]
+    },
+    "CollateralDetail": {
+     "TextContent": [
+      {
+       "TextType": "04",
+       "ContentAudience": "00",
+       "Text": "序論 有の意味への問の概要的提示\n第1部 現有を時性に向って研究的に解釈することと、時を有への問の超越論的地平として解明すること(現有の準備的基礎分析\n現有と時性)"
+      }
+     ]
+    },
+    "PublishingDetail": {
+     "Imprint": {
+      "ImprintIdentifier": [
+       {
+        "ImprintIDType": "19"
+       }
+      ],
+      "ImprintName": "創文社"
+     },
+     "PublishingDate": [
+      {
+       "PublishingDateRole": "01",
+       "Date": ""
+      }
+     ]
+    },
+    "ProductSupply": {
+     "SupplyDetail": {
+      "ReturnsConditions": {
+       "ReturnsCodeType": "04",
+       "ReturnsCode": "02"
+      },
+      "ProductAvailability": "99"
+     }
+    }
+   },
+   "hanmoto": {
+    "datecreated": "2016-09-19 09:47:57",
+    "dateshuppan": "1997-11",
+    "datemodified": "2016-09-19 09:47:57"
+   },
+   "summary": {
+    "isbn": "9784423196267",
+    "title": "ハイデッガー全集 第2巻(第1部門 既刊著作 1910-1976)",
+    "volume": "",
+    "series": "",
+    "publisher": "創文社",
+    "pubdate": "1997-11",
+    "cover": "",
+    "author": "Buchner,Hartmut／著 Heidegger,Martin／著 辻村公一／著 ほか"
+   }
+  }
+ ]

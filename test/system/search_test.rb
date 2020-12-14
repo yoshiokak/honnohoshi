@@ -84,4 +84,69 @@ class SearchTest < ApplicationSystemTestCase
 
     assert_text("書籍が見つかりませんでした")
   end
+
+  test "failed to get book ratings" do
+    stub_amazon_timeout
+    stub_rakuten_books_timeout
+    stub_bookmeter_search_results_by_isbn_timeout
+    stub_hongasuki_search_results_by_isbn_timeout
+
+    visit root_path
+
+    fill_in "isbn", with: "9784101010014"
+    find(".search__btn").click
+
+    assert find("img[src='https://cover.openbd.jp/9784101010014.jpg']")
+    assert_text("吾輩は猫である")
+    assert_text("夏目漱石／著")
+    assert_text("新潮社")
+    assert_text("2003-06")
+
+    assert_text("Amazonから書籍の評価を取得するのに失敗しました")
+    assert_text("楽天ブックスから書籍の評価を取得するのに失敗しました")
+    assert_text("読書メーターから書籍の評価を取得するのに失敗しました")
+    assert_text("本が好き！から書籍の評価を取得するのに失敗しました")
+
+    assert_no_selector(".book-ratings__book-rating")
+  end
+
+  test "parsing error in Bookmeter and Hongasuki" do
+    stub_bookmeter_timeout
+    stub_hongasuki_timeout
+
+    visit root_path
+
+    fill_in "isbn", with: "9784101010014"
+    find(".search__btn").click
+
+    assert find("img[src='https://cover.openbd.jp/9784101010014.jpg']")
+    assert_text("吾輩は猫である")
+    assert_text("夏目漱石／著")
+    assert_text("新潮社")
+    assert_text("2003-06")
+
+    assert_selector(".book-ratings__logo-0")
+    assert page.all(".book-ratings__star-rating")[0]
+    assert_equal("3.9", page.all(".book-ratings__average-rating")[0].text)
+    assert_equal("(レビュー762件)", page.all(".book-ratings__review-count")[0].text)
+    page.assert_selector(:link, nil, href: "https://www.amazon.co.jp/dp/B00CL6N16Q")
+
+    assert_selector(".book-ratings__logo-1")
+    assert page.all(".book-ratings__star-rating")[1]
+    assert_equal("3.93", page.all(".book-ratings__average-rating")[1].text)
+    assert_equal("(レビュー192件)", page.all(".book-ratings__review-count")[1].text)
+    page.assert_selector(:link, nil, href: "https://hb.afl.rakuten.co.jp/hgc/g00q0727.zh7wt7c9.g00q0727.zh7wub5e/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F1656073%2F")
+
+    assert_selector(".book-ratings__logo-2")
+    assert page.all(".book-ratings__star-rating")[2]
+    assert_equal("取得エラー", page.all(".book-ratings__average-rating")[2].text)
+    assert_equal("取得エラー", page.all(".book-ratings__review-count")[2].text)
+    page.assert_selector(:link, nil, href: "https://bookmeter.com/books/548397")
+
+    assert_selector(".book-ratings__logo-3")
+    assert page.all(".book-ratings__star-rating")[3]
+    assert_equal("取得エラー", page.all(".book-ratings__average-rating")[3].text)
+    assert_equal("取得エラー", page.all(".book-ratings__review-count")[3].text)
+    page.assert_selector(:link, nil, href: "https://www.honzuki.jp/book/9931/")
+  end
 end

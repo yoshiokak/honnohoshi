@@ -1,5 +1,6 @@
 .book-ratings {
   flex-direction: column;
+  margin-right: 4rem;
 }
 
 .book-ratings__book-rating {
@@ -32,7 +33,7 @@
 
 .book-ratings__average-rating {
   display: inline-block;
-  width: 70px;
+  width: 100px;
   margin-top: 1em;
   margin-left: 1.3em;
   font-weight: bold;
@@ -52,7 +53,6 @@
 
 .book-ratings__url {
   margin-top: 1em;
-  margin-left: 1.3em;
   font-size: 25px;
   padding-top: 2rem;
 }
@@ -71,6 +71,11 @@
 }
 
 .book-ratings-does-not-exist {
+  margin-top: 3rem;
+  font-size: 22px;
+}
+
+.book-ratings-error {
   margin-top: 3rem;
   font-size: 22px;
 }

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class AmazonBookRating < BookRating
-  attr_reader :average_rating, :review_count, :url
+  attr_reader :average_rating, :review_count, :url, :error
 
   def service_name
     "Amazon"
@@ -16,7 +16,12 @@ class AmazonBookRating < BookRating
   end
 
   def search(isbn)
-    @book = RakutenRapidAPI::AmazonPrice.search(isbn).first
+    begin
+      @book = RakutenRapidAPI::AmazonPrice.search(isbn).first
+    rescue
+      @error = true
+      return @book = nil
+    end
 
     if book_exists?
       @url = @book["detailPageURL"]

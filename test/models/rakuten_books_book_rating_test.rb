@@ -25,4 +25,12 @@ class RakutenBooksBookRatingTest < ActiveSupport::TestCase
     assert_equal("https://hb.afl.rakuten.co.jp/hgc/g00q0727.zh7wt7c9.g00q0727.zh7wub5e/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F1656073%2F",
                  @rakuten_books_book_rating.url)
   end
+
+  test "exception handling" do
+    stub_rakuten_books_timeout
+
+    assert_not @rakuten_books_book_rating.error
+    @rakuten_books_book_rating.search("9784101010014")
+    assert @rakuten_books_book_rating.error
+  end
 end

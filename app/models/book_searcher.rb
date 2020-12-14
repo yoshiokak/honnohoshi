@@ -9,7 +9,11 @@ class BookSearcher
     else
       if book.cover_image.blank?
         search_result = RakutenWebService::Books::Book.search(isbn: isbn.delete("-")).first
-        book.cover_image = search_result.large_image_url unless search_result.nil?
+        if search_result.nil?
+          book.cover_image = "/assets/not_available.png"
+        else
+          book.cover_image = search_result.large_image_url
+        end
       end
     end
 

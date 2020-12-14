@@ -46,6 +46,10 @@ module StubHelper
         )
   end
 
+  def stub_rakuten_books_timeout
+    stub_request(:get, "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?affiliateId=#{ENV["RAKUTEN_AFFILIATE_ID"]}&applicationId=#{ENV["RAKUTEN_APP_ID"]}&formatVersion=2&isbn=9784101010014").to_timeout
+  end
+
   def stub_bookmeter_search_results_by_isbn
     stub_request(:get, "https://bookmeter.com/search?keyword=9784101010014").
       with(
@@ -74,6 +78,41 @@ module StubHelper
           body: File.read(Rails.root.join("test/fixtures/files/bookmeter.html")),
           headers: { "Content-Type" =>  "text/html" }
         )
+  end
+
+  def stub_bookmeter_search_results_by_isbn_timeout
+    stub_request(:get, "https://bookmeter.com/search?keyword=9784101010014").to_raise(Net::OpenTimeout)
+  end
+
+  def stub_bookmeter_timeout
+    stub_request(:get, "https://bookmeter.com/books/548397").to_raise(Net::OpenTimeout)
+  end
+
+  def stub_book_rating_is_not_available_in_bookmeter
+    stub_request(:get, "https://bookmeter.com/search?keyword=9784326000258").
+      with(
+        headers: {
+          "Accept"=>"*/*",
+          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/bookmeter_search_results_by_isbn_9784326000258.json")),
+          headers: { "Content-Type" =>  "text/html" }
+        )
+    stub_request(:get, "https://bookmeter.com/books/677132").
+      with(
+        headers: {
+          "Accept"=>"*/*",
+          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/bookmeter_isbn_9784326000258.html")),
+          headers: { "Content-Type" =>  "text/html" }
+            )
   end
 
   def stub_hongasuki_search_results_by_isbn
@@ -106,6 +145,41 @@ module StubHelper
         )
   end
 
+  def stub_hongasuki_search_results_by_isbn_timeout
+    stub_request(:get, "https://www.honzuki.jp/book/book_search/index.html?search_in=honzuki&isbn=9784101010014").to_raise(Net::OpenTimeout)
+  end
+
+  def stub_hongasuki_timeout
+    stub_request(:get, "https://www.honzuki.jp/book/9931/").to_raise(Net::OpenTimeout)
+  end
+
+  def stub_book_rating_is_not_available_in_hongasuki
+    stub_request(:get, "https://www.honzuki.jp/book/book_search/index.html?search_in=honzuki&isbn=9784781912295").
+      with(
+        headers: {
+          "Accept"=>"*/*",
+          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/hongasuki_search_results_by_isbn_9784781912295.html")),
+          headers: { "Content-Type" =>  "text/html" }
+        )
+    stub_request(:get, "https://www.honzuki.jp/book/45397/").
+      with(
+        headers: {
+          "Accept"=>"*/*",
+          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/hongasuki_isbn_9784781912295.html")),
+          headers: { "Content-Type" =>  "text/html" }
+            )
+  end
+
   def stub_amazon
     stub_request(:get, "https://amazon-price1.p.rapidapi.com/search?keywords=9784101010014&marketplace=JP").
       with(
@@ -119,6 +193,10 @@ module StubHelper
           body: File.read(Rails.root.join("test/fixtures/files/amazon.json")),
           headers: { "Content-Type" =>  "application/json" }
         )
+  end
+
+  def stub_amazon_timeout
+    stub_request(:get, "https://amazon-price1.p.rapidapi.com/search?keywords=9784101010014&marketplace=JP").to_raise(Net::OpenTimeout)
   end
 
   def stub_no_image_of_book_in_open_bd
@@ -204,6 +282,35 @@ module StubHelper
         to_return(
           status: 200,
           body: File.read(Rails.root.join("test/fixtures/files/isbn_9784004200369_on_rakuten_books.json")),
+          headers: { "Content-Type" =>  "application/json" }
+        )
+  end
+
+  def stub_no_book_image_in_open_bd_and_rakuten_books
+    stub_request(:get, "https://api.openbd.jp/v1/get?isbn=9784423196267").
+      with(
+        headers: {
+              "Accept"=>"*/*",
+              "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+              "User-Agent"=>"Faraday v1.0.1"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/isbn_9784423196267_on_open_bd.json")),
+          headers: { "Content-Type" =>  "application/json" }
+        )
+
+    stub_request(:get, "https://app.rakuten.co.jp/services/api/BooksTotal/Search/20170404?format=json&isbnjan=9784423196267&applicationId=#{ENV["RAKUTEN_APP_ID"]}").
+      with(
+        headers: {
+          "Accept"=>"*/*",
+          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/isbn_9784423196267_on_rakuten_books.json")),
           headers: { "Content-Type" =>  "application/json" }
         )
   end

@@ -25,4 +25,28 @@ class BookmeterBookRatingTest < ActiveSupport::TestCase
     assert_equal(4.1, @bookmeter_book_rating.average_rating)
     assert_equal("1094", @bookmeter_book_rating.review_count)
   end
+
+  test "exception handling when searching" do
+    stub_bookmeter_search_results_by_isbn_timeout
+
+    assert_not @bookmeter_book_rating.error
+    @bookmeter_book_rating.search("9784101010014")
+    assert @bookmeter_book_rating.error
+  end
+
+  test "exception handling when parsing" do
+    stub_bookmeter_timeout
+
+    @bookmeter_book_rating.search("9784101010014")
+    assert_equal("取得エラー", @bookmeter_book_rating.average_rating)
+    assert_equal("取得エラー", @bookmeter_book_rating.review_count)
+  end
+
+  test "book rating is not available in Bookmeter" do
+    stub_book_rating_is_not_available_in_bookmeter
+
+    @bookmeter_book_rating.search("9784326000258")
+    assert_equal("評価なし", @bookmeter_book_rating.average_rating)
+    assert_equal("0", @bookmeter_book_rating.review_count)
+  end
 end
