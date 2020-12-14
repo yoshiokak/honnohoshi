@@ -46,6 +46,10 @@ module StubHelper
         )
   end
 
+  def stub_rakuten_books_timeout
+    stub_request(:get, "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?affiliateId=#{ENV["RAKUTEN_AFFILIATE_ID"]}&applicationId=#{ENV["RAKUTEN_APP_ID"]}&formatVersion=2&isbn=9784101010014").to_timeout
+  end
+
   def stub_bookmeter_search_results_by_isbn
     stub_request(:get, "https://bookmeter.com/search?keyword=9784101010014").
       with(
@@ -74,6 +78,10 @@ module StubHelper
           body: File.read(Rails.root.join("test/fixtures/files/bookmeter.html")),
           headers: { "Content-Type" =>  "text/html" }
         )
+  end
+
+  def stub_bookmeter_search_results_by_isbn_timeout
+    stub_request(:get, "https://bookmeter.com/search?keyword=9784101010014").to_timeout
   end
 
   def stub_hongasuki_search_results_by_isbn
