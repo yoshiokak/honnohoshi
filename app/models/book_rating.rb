@@ -28,4 +28,8 @@ class BookRating
   def url
     raise NotImplementedError
   end
+
+  def error
+    raise NotImplementedError
+  end
 end
