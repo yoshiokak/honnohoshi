@@ -50,6 +50,21 @@ module StubHelper
     stub_request(:get, "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?affiliateId=#{ENV["RAKUTEN_AFFILIATE_ID"]}&applicationId=#{ENV["RAKUTEN_APP_ID"]}&formatVersion=2&isbn=9784101010014").to_timeout
   end
 
+  def stub_book_rating_is_not_available_in_rakuten_books
+    stub_request(:get, "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?affiliateId=#{ENV["RAKUTEN_AFFILIATE_ID"]}&applicationId=#{ENV["RAKUTEN_APP_ID"]}&formatVersion=2&isbnjan=9784326102839").
+      with(
+        headers: {
+          "Accept"=>"*/*",
+          "Accept-Encoding"=>"gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      ).
+        to_return(
+          status: 200,
+          body: File.read(Rails.root.join("test/fixtures/files/isbn_9784326102839_on_rakuten_books.json")),
+          headers: { "Content-Type" =>  "application/json" }
+        )
+  end
+
   def stub_bookmeter_search_results_by_isbn
     stub_request(:get, "https://bookmeter.com/search?keyword=9784101010014").
       with(

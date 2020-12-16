@@ -33,4 +33,14 @@ class RakutenBooksBookRatingTest < ActiveSupport::TestCase
     @rakuten_books_book_rating.search("9784101010014")
     assert @rakuten_books_book_rating.error
   end
+
+  test "book rating is not available in RakutenBooks" do
+    stub_book_rating_is_not_available_in_rakuten_books
+
+    @rakuten_books_book_rating.search("9784326102839")
+    assert_equal("評価なし", @rakuten_books_book_rating.average_rating)
+    assert_equal(0, @rakuten_books_book_rating.review_count)
+    assert_equal("https://hb.afl.rakuten.co.jp/hgc/g00q0727.zh7wt7c9.g00q0727.zh7wub5e/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F16399705%2F",
+                 @rakuten_books_book_rating.url)
+  end
 end
