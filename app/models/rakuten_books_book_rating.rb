@@ -25,7 +25,7 @@ class RakutenBooksBookRating < BookRating
 
     if book_exists?
       @url = @book.affiliate_url
-      @average_rating = @book.review_average
+      @average_rating = @book.review_average == "0.0" ? "評価なし" : @book.review_average
       @review_count = @book.review_count
     end
   end

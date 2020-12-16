@@ -32,4 +32,14 @@ class AmazonBookRatingTest < ActiveSupport::TestCase
     @amazon_book_rating.search("9784101010014")
     assert @amazon_book_rating.error
   end
+
+  test "book rating is not available in Amazon" do
+    stub_book_rating_is_not_available_in_amazon
+
+    @amazon_book_rating.search("9784326199808")
+    assert_equal("評価なし", @amazon_book_rating.average_rating)
+    assert_equal("0", @amazon_book_rating.review_count)
+    assert_equal("https://www.amazon.co.jp/dp/4326199806",
+                 @amazon_book_rating.url)
+  end
 end
