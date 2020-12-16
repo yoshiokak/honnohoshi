@@ -25,8 +25,8 @@ class AmazonBookRating < BookRating
 
     if book_exists?
       @url = @book["detailPageURL"]
-      @average_rating = @book["rating"]
-      @review_count = @book["totalReviews"]
+      @average_rating = @book["rating"] == "" ? "評価なし" : @book["rating"]
+      @review_count = @book["totalReviews"] == "" ? "0" : @book["totalReviews"]
     end
   end
 end
